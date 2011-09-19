@@ -1,2 +1,64 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="hero-unit">
+  <h1>I'll get some player/team/ground pictures in here as we develop the site further</h1>
+</div>
+
+
+
+<div class="container">
+<div class="row">
+  <div class="span6 columns">
+    
+    <div class="well">
+      <h2 class="page-header">Hire our ground</h2>
+    
+      <h3>Quality cricket pitch, pavilion and professional tea for £200.</h3>
+      <p>add pics and links etc</p>
+    </div>
+    
+    
+    <div class="well">
+      <h2 class="page-header">Latest Scores</h2>
+    
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      <p><a href="#">Elsworth 234/5 vs
+        Fen Ditton 123 all out</a></p>
+      
+    </div>
+    
+    
+        
+  </div>
+  
+  
+  
+  <div class="span10 columns">
+    
+    
+    <h2 class="page-header">Next Fixtures</h2>
+add fixtures when I implement all the fixture stuff
+    
+    <br/><br/><br/><br/>
+    
+    <h2 class="page-header">News</h2>
+    <% @news.each do |news| %>
+
+	  <h3> <%= link_to news.title, news %> </h3>
+	  <p> <%= news.description %></p>
+
+	<% end %>
+
+  
+    
+  </div>
+</div>
+</div>
+
