@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  venue_lat: 9.99
+  venue_lng: 9.99
+  conditions: MyText
+
+two:
+  venue_lat: 9.99
+  venue_lng: 9.99
+  conditions: MyText

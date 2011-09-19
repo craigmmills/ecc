@@ -85,6 +85,7 @@ RailsAdmin.config do |config|
   #   end
   # end
   #
+  
   #  ==> Model specific configuration
   # Keep in mind that *all* configuration blocks are optional. 
   # RailsAdmin will try his best to provide the best defaults for each section, for each field! 

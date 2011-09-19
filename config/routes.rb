@@ -1,6 +1,10 @@
 Ecc::Application.routes.draw do
   
 
+  resources :matches
+
+  resources :venues
+
   resources :news
   resources :players
   get "home/index"
