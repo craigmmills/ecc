@@ -2,10 +2,9 @@ Ecc::Application.routes.draw do
   
 
   resources :news
-
+  resources :players
   get "home/index"
-  get "players/index"
-  get "players/show"
+
   
   
   match "/players/:id" => "players#show"

@@ -1,5 +1,14 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+<h1>Listing PLayers</h1>
+<div class="hero-unit">
+  <div class="container"><h1>Players</h1> </div>
+</div>
 
 
+<div class="container">
+	<% @players.each do |player| %>
 
+	  <h3> <%= link_to player.first_name + " " + player.last_name, player %> </h3>
+	  <p> <%= player.description %></p>
+
+	<% end %>
+</div>
