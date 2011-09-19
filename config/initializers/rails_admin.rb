@@ -13,6 +13,11 @@ RailsAdmin.config do |config|
   
   config.current_user_method { current_user } #auto-generated
 
+
+
+  RailsAdmin.config do |config|
+    config.authenticate_with {}
+  end
   #  ==> Authentication (before_filter)
   # This is run inside the controller instance so you can setup any authentication you need to.
   # By default, the authentication will run via warden if available.

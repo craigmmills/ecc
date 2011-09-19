@@ -1,5 +1,12 @@
 Ecc::Application.routes.draw do
+  
+
   get "home/index"
+  get "players/index"
+  get "players/show"
+  
+  
+  match "/players/:id" => "players#show"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root :to => "home#index" 
