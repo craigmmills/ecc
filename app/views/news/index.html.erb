@@ -1,0 +1,21 @@
+<h1>Listing news</h1>
+<div class="hero-unit">
+  <div class="container"><h1>News</h1> </div>
+</div>
+
+
+<div class="container">
+	<% @news.each do |news| %>
+
+	  <h3> <%= link_to news.title, news %> </h3>
+	  <p> <%= news.description %></p>
+
+	<% end %>
+</div>
+
+
+
+
+
+				
+	

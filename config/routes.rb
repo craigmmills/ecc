@@ -1,6 +1,8 @@
 Ecc::Application.routes.draw do
   
 
+  resources :news
+
   get "home/index"
   get "players/index"
   get "players/show"
