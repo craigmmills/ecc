@@ -1,6 +1,10 @@
 Ecc::Application.routes.draw do
   
 
+  resources :home_teams
+
+  resources :teams
+
   resources :matches
 
   resources :venues

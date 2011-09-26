@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919225331) do
+ActiveRecord::Schema.define(:version => 20110921194425) do
+
+  create_table "home_teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "matches", :force => true do |t|
     t.integer  "home_team_id"
@@ -21,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20110919225331) do
     t.integer  "venue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "match_date"
   end
 
   create_table "news", :force => true do |t|
@@ -53,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20110919225331) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "teams", :force => true do |t|
+    t.integer  "venue_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

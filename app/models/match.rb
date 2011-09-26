@@ -1,3 +1,4 @@
 class Match < ActiveRecord::Base
-  has_one :venue
+  belongs_to :venue
+  belongs_to :team, :foreign_key => "away_team_id"
 end
