@@ -1,0 +1,2 @@
+module OppositionsHelper
+end

@@ -1,4 +1,4 @@
 class Venue < ActiveRecord::Base
-  has_many :teams
+  has_many :opposition
   has_many :matches
 end
