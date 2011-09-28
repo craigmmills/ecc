@@ -11,21 +11,39 @@
     </div>
   <% end %>
 
-<div class="input">
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :match_date %>
+  </div>
+
+
   <div class="fieldset">
-    <%= f.label :home_team_id %><br />
+    <%= f.label :home_team_id %>
     <%= f.text_field :home_team_id %>
   </div>
+
   <div class="field">
-    <%= f.label :result %><br />
-    <%= f.text_field :result %>
+    <%= f.label :home_runs %>
+    <%= f.text_field :home_runs %>
   </div>
 
+  <div class="field">
+    <%= f.label :away_team_id %>
+    <%= f.text_field :away_team_id %>
+  </div>
 
+  <div class="field">
+    <%= f.label :away_runs %>
+    <%= f.text_field :away_runs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result %>
+    <%= f.text_field :result %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
   
-</div>
 <% end %>

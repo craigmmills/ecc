@@ -38,6 +38,18 @@ class MatchesController < ApplicationController
       end
     end
   end
+  
+  # DELETE /requests/1
+  # DELETE /requests/1.json
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+
+    respond_to do |format|
+      format.html { redirect_to matches_url }
+      format.json { head :ok }
+    end
+  end
 
 
   
