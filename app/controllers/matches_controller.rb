@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
   end
   
   def create
-    @match = Match.new(params[:place])
+    @match = Match.new(params[:match])
 
     respond_to do |format|
       if @match.save
