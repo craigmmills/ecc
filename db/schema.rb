@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928171211) do
+ActiveRecord::Schema.define(:version => 20110928180857) do
 
   create_table "matches", :force => true do |t|
     t.integer  "home_team_id"
     t.integer  "away_team_id"
     t.string   "home_runs"
-    t.string   "away_score"
+    t.string   "away_runs"
     t.integer  "venue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
