@@ -20,6 +20,14 @@ class MatchesController < ApplicationController
       format.json { render json: @match }
     end
   end
+  
+  def new
+    @match = Match.new
+  end
+  
+  def create
+    
+  end
 
   
 end
