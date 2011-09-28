@@ -7,6 +7,7 @@
     <th>Home score</th>
     <th>Away score</th>
     <th>Venue</th>
+    <th>Result</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,7 @@
     <td><%= match.home_score %></td>
     <td><%= match.away_score %></td>
     <td><%= match.venue_id %></td>
+    <td><%= match.result %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
     <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete %></td>
