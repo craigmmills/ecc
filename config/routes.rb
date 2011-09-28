@@ -10,10 +10,11 @@ Ecc::Application.routes.draw do
   resources :venues
 
   resources :news
-  resources :players
+  resources :players                   
+  resources :stats
   get "home/index"
 
-  
+  match "/intelligence" => "stats#index"
   
   match "/players/:id" => "players#show"
 
