@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container"> 
+  <div class="row">
+    <div class="span6 columns">
+
+      <div class="well">
+        <h2 class="page-header">add some new intelligence</h2>
+  <!-- TODO: Think this "container" div and all other bits should live in template - like application.html.erb -->
 <p>
   <b>Home team:</b>
   <%= @match.home_team_id %>
@@ -32,4 +39,6 @@
 
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+<%= link_to 'Back', matches_path %>  
+
+</div></div></div></div>
