@@ -10,6 +10,13 @@ class Match < ActiveRecord::Base
     # Abandoned this when realised how well date.parse works
   end
   
+  def self.summary_results
+    won = Match.where(:result => "W").count
+    drawn = Match.where(:result => "D").count
+    lost = Match.where(:result => "L").count
+    return [won, drawn, lost]
+  end
+
   def guess_result
     puts home_runs
     puts away_runs

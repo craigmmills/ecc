@@ -3,7 +3,9 @@ class MatchesController < ApplicationController
   # GET /matches.json
   def index
     @matches = Match.all(:order => 'match_date DESC')
-
+    
+    @results = Match.summary_results
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @matches }
@@ -52,7 +54,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

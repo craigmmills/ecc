@@ -1,11 +1,11 @@
-var chart;
+var scores_chart;
 $(document).ready(function() {
 
    // define the options
    var options = {
 
       chart: {
-         renderTo: 'chart_this'
+         renderTo: 'scores_chart'
       },
       
       title: {
@@ -163,7 +163,7 @@ $(document).ready(function() {
       options.series[0].data = ourScores;
       options.series[1].data = theirScores;
       
-      chart = new Highcharts.Chart(options);
+      scores_chart = new Highcharts.Chart(options);
    });
    
 });
