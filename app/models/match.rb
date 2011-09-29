@@ -6,6 +6,6 @@ class Match < ActiveRecord::Base
   # TODO: no idea if this should go here, but it should work
   # Checks input for "last sunday" and finds most recent Sunday in the past
   def human_date
-    
+    # Accept either a date in "DD/MM/YY" or "DD/MM" or "last sunday" "last sun" or "last saturday" "last sat"
   end
 end
