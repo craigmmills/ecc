@@ -11,10 +11,9 @@ Ecc::Application.routes.draw do
 
   resources :news
   resources :players                   
-  resources :stats
   get "home/index"
 
-  match "/intelligence" => "stats#index"
+  match "/intelligence" => "matches#index"
   
   match "/players/:id" => "players#show"
 
