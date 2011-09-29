@@ -1,16 +1,16 @@
 <div class="container">
   <!-- Graphics section -->
   <div class="row well">
-    <div class="span16">
+    <!-- <div class="span16"> -->
       <div class="span12 ">
         <h2>Graph of glory</h2>
       </div>
       <div clas="span4">
         <%= link_to "Add new match result", new_match_path, :class => "btn success" %>
       </div>
-    </div> 
+    <!-- </div>  -->
     <div class="span16">
-      <div id="chart_this" style="width: 600px; height: 400px"></div>
+      <div id="chart_this" style="width: 600px; height: 250px"></div>
     </div>
   </div>
 
@@ -22,37 +22,42 @@
         <!-- TODO: Think this "container" div and all other bits could live in template - like application.html.erb -->
         
         
-        <!-- TODO: Fairly sure there are better places for this script to live -->
+        <!-- TODO: Fairly sure there are better places for this script to live, but it works for now -->
         <script type="text/javascript" charset="utf-8">
-          $(function() {
-            $("table#results").tablesorter({ sortList: [[1,0]] });
-          });
+          $(document).ready(function() 
+              { 
+                  $("#results").tablesorter(); 
+              } 
+          );
         </script>
 
-        <table id="results"> <!-- id="results" class="zebra-striped"> -->
-          <tr>
-            <th>Date</th>
-            <th>Home team</th>
-            <th>Away team</th>
-            <th>Home score</th>
-            <th>Away score</th>
-            <th>Venue</th>
-            <th>Result</th>
-            <th></th>
-          </tr>
-
-        <% @matches.each do |match| %>
-          <tr>
-            <td><%= link_to "#{match.match_date}", edit_match_path(match) %> </td>
-            <td><%= match.home_team_id %></td>
-            <td><%= match.away_team_id %></td>
-            <td><%= match.home_runs %></td>
-            <td><%= match.away_runs %></td>
-            <td><%= match.venue_id %></td>
-            <td><%= match.result %></td>
-            <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete, :class => "btn small danger" %></td>
-          </tr>
-        <% end %>
+        <table id="results" class="tablesorter">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Home team</th>
+              <th>Away team</th>
+              <th>Home score</th>
+              <th>Away score</th>
+              <th>Venue</th>
+              <th>Result</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @matches.each do |match| %>
+            <tr>
+              <td><%= link_to "#{match.match_date}", edit_match_path(match) %> </td>
+              <td><%= match.home_team_id %></td>
+              <td><%= match.away_team_id %></td>
+              <td><%= match.home_runs %></td>
+              <td><%= match.away_runs %></td>
+              <td><%= match.venue_id %></td>
+              <td><%= match.result %></td>
+              <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete, :class => " small danger" %></td>
+            </tr>
+            <% end %>
+          </tbody>
         </table>
 
         <%= link_to 'Add new match result', new_match_path, :class => "btn success" %>

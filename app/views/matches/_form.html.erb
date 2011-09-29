@@ -10,36 +10,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.text_field :match_date %>
+  
+  <div class="clearfix">
+    <div class="field">
+      <%= f.label :date %>
+      <div class="input"><%= f.text_field :match_date %></div>
+    </div>
   </div>
 
-
-  <div class="fieldset">
-    <%= f.label :home_team_id %>
-    <%= f.text_field :home_team_id %>
+  <div class="clearfix">
+    <div class="fieldset">
+      <%= f.label :home_team_id %>
+      <div class="input"><%= f.text_field :home_team_id %>  </div>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <div class="field">
+      <%= f.label :away_team_id %>
+      <div class="input"><%= f.text_field :away_team_id %>  </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :away_team_id %>
-    <%= f.text_field :away_team_id %>
+  <div class="clearfix">
+    <div class="field">
+      <%= f.label :home_runs %>
+      <div class="input"><%= f.text_field :home_runs %>    </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :home_runs %>
-    <%= f.text_field :home_runs %>
+  <div class="clearfix">
+    <div class="field">
+      <%= f.label :away_runs %>
+      <div class="input"><%= f.text_field :away_runs %>   </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :away_runs %>
-    <%= f.text_field :away_runs %>
-  </div>
-
-  <div class="field">
-    <%= f.label :result, "Result (W/L/D/A/C) - leave blank for a guess" %>
-    <%= f.text_field :result %> 
+  <div class="clearfix">
+    <div class="field">
+      <%= f.label :result, "Result (W/L/D/A/C) - leave blank for a guess" %>
+      <div class="input"><%= f.text_field :result %></div> 
+    </div>
   </div>
 
   <div class="actions">

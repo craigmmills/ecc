@@ -103,7 +103,7 @@ $(document).ready(function() {
       
       series: [{
          name: 'Our score',
-         lineWidth: 20,
+         lineWidth: 15,
          marker: {
             radius: 4
          }
