@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to(@match, :notice => 'Match was successfully created.') }
+        format.html { redirect_to(matches_path, :notice => 'Match was successfully created.') }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
         format.html { render :action => "new" }
