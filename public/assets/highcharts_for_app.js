@@ -9,13 +9,14 @@ $(document).ready(function() {
       },
       
       title: {
-         text: 'Made up sports scores'
+         text: 'Recent results',
+         align: 'left'
       },
-      
-      subtitle: {
-         text: 'Source: Nowhere'
-      },
-      
+      // 
+      // subtitle: {
+      //    // text: 'Source: Nowhere'
+      // },
+      // 
       xAxis: {
          type: 'datetime',
          tickInterval: 7 * 24 * 3600 * 1000, // one week
@@ -60,9 +61,9 @@ $(document).ready(function() {
       }],
       
       legend: {
-         align: 'left',
+         align: 'right',
          verticalAlign: 'top',
-         y: 20,
+         // y: 10,
          floating: true,
          borderWidth: 0
       },
@@ -102,7 +103,7 @@ $(document).ready(function() {
       
       series: [{
          name: 'Our score',
-         lineWidth: 4,
+         lineWidth: 20,
          marker: {
             radius: 4
          }
