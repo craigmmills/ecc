@@ -115,7 +115,7 @@ $(document).ready(function() {
    // to the options and initiate the chart.
    // This data is obtained by exporting a GA custom report to TSV.
    // http://api.jquery.com/jQuery.get/
-   jQuery.get('/vis/data.csv', null, function(csv) {
+   jQuery.get('/tmp/sample_data.csv', null, function(csv) {
       var lines = [],
          listen = true,
          opponent,
