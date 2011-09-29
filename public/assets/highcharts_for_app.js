@@ -115,8 +115,9 @@ $(document).ready(function() {
    // to the options and initiate the chart.
    // This data is obtained by exporting a GA custom report to TSV.
    // http://api.jquery.com/jQuery.get/
-   jQuery.get('/sample_data.csv', null, function(csv) {
-      var lines = [],
+   jQuery.get('/matches.json', function(data) {
+      var //lines = [],
+         data,
          listen = true,
          opponent,
          result,
@@ -127,31 +128,32 @@ $(document).ready(function() {
          
       try {
       // split the data return into lines and parse them
-      csv = csv.split(/\n/g);
-      jQuery.each(csv, function(i, line) {
+      // csv = csv.split(/\n/g);
+      // jQuery.each(csv, function(i, line) {
+      jQuery.each(data, function(i, record) {
 
          // listen for data lines between the Graph and Table headers
-         if (csv[i].match(/^Opponents.+/)) {
-           listen == false;
-         } else { listen == true};  
+         // if (record[''].match(/^Opponents.+/)) {
+         //   listen == false;
+         // } else { listen == true};  
          
          // 
          if (listen) {
-            line = line.split(",");
+            // line = line.split(",");
             
-            date = Date.parse(line[0]);
-            opponent = line[3];
+            date = Date.parse(record['match_date']); // dropped the "+ 'UTC' " which was causing probs in FF
+            opponent = record['away_team_id'];
 
             // opponent = line[0];
 
             ourScores.push([
                date,
-               parseInt(line[4]),
+               parseInt(record['home_runs']),
                opponent
             ]);
             theirScores.push([
                date,
-               parseInt(line[6]),
+               parseInt(record['away_runs']),
                opponent
             ]);
          }
