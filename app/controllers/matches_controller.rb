@@ -39,8 +39,24 @@ class MatchesController < ApplicationController
     end
   end
   
-  # DELETE /requests/1
-  # DELETE /requests/1.json
+  def edit
+    @match = Match.find(params[:id])
+  end     
+  
+  def update
+    @match = Match.find(params[:id])
+
+    respond_to do |format|
+      if @match.update_attributes(params[:match])
+        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @match.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
