@@ -7,6 +7,12 @@
       <div class="well">
         <h2 class="page-header">What you just added</h2>
   <!-- TODO: Think this "container" div and all other bits should live in template - like application.html.erb -->
+
+<p>
+  <b>Date:</b>
+  <%= @match.match_date %>
+</p> 
+
 <p>
   <b>Home team:</b>
   <%= @match.home_team_id %>
@@ -30,7 +36,7 @@
 <p>
   <b>Venue:</b>
   <%= @match.venue_id %>
-</p>
+</p> 
 
 <p>
   <b>Result:</b>
