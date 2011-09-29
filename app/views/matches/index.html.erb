@@ -41,7 +41,6 @@
               <th>Away score</th>
               <th>Venue</th>
               <th>Result</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -53,8 +52,7 @@
               <td><%= match.home_runs %></td>
               <td><%= match.away_runs %></td>
               <td><%= match.venue_id %></td>
-              <td><%= match.result %></td>
-              <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete, :class => " small danger" %></td>
+              <td><span class='label <%= label_result(match.result) %>'><%= match.result %></span></td>
             </tr>
             <% end %>
           </tbody>
