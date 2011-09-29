@@ -13,7 +13,7 @@ $(document).ready(function() {
       },
       
       subtitle: {
-         text: 'Source: Anywhere'
+         text: 'Source: Nowhere'
       },
       
       xAxis: {
