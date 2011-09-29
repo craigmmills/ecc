@@ -23,11 +23,15 @@ class MatchesController < ApplicationController
   
   def new
     @match = Match.new
+    @match.match_date = Match.last.match_date + 7
+    @match.home_team_id = 1
+    @match.away_team_id = 2
   end
   
   def create
     @match = Match.new(params[:match])
-
+    @match.result =  @match.guess_result if @match.result.blank?
+    
     respond_to do |format|
       if @match.save
         format.html { redirect_to(matches_path, :notice => 'Match was successfully created.') }

@@ -23,13 +23,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :home_runs %>
-    <%= f.text_field :home_runs %>
+    <%= f.label :away_team_id %>
+    <%= f.text_field :away_team_id %>
   </div>
 
   <div class="field">
-    <%= f.label :away_team_id %>
-    <%= f.text_field :away_team_id %>
+    <%= f.label :home_runs %>
+    <%= f.text_field :home_runs %>
   </div>
 
   <div class="field">
@@ -38,8 +38,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :result %>
-    <%= f.text_field :result %>
+    <%= f.label :result, "Result (W/L/D/A/C) - leave blank for a guess" %>
+    <%= f.text_field :result %> 
   </div>
 
   <div class="actions">
