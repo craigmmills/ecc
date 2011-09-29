@@ -139,7 +139,7 @@ $(document).ready(function() {
          if (listen) {
             line = line.split(",");
             
-            date = Date.parse(line[0] + 'UTC');
+            date = Date.parse(line[0]);
             opponent = line[3];
 
             // opponent = line[0];
