@@ -18,8 +18,8 @@ class Match < ActiveRecord::Base
   end
 
   def guess_result
-    puts home_runs
-    puts away_runs
+    # puts home_runs
+    # puts away_runs
     case home_runs <=> away_runs
     when 1
       return "W"

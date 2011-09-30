@@ -1,15 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+home_win:
   home_team_id: 1
-  away_team_id: 1
-  home_score: MyString
-  away_score: MyString
+  away_team_id: 2
+  home_runs: 60
+  away_runs: 50
   venue_id: 1
-
-two:
+  result: W
+  
+away_win:
   home_team_id: 1
-  away_team_id: 1
-  home_score: MyString
-  away_score: MyString
+  away_team_id: 2
+  home_runs: 60
+  away_runs: 70
   venue_id: 1
+  result: L
+  
