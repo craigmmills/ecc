@@ -116,9 +116,14 @@ $(document).ready(function() {
    // to the options and initiate the chart.
    // This data is obtained by exporting a GA custom report to TSV.
    // http://api.jquery.com/jQuery.get/
-   jQuery.get('/matches.json', function(data) {
+
+   // Original line follows:
+   // jQuery.get('/matches.json', function(data) {
+   
+   var data = [<%= Match.all.to_json %>][0];
+   // function(data) {
       var //lines = [],
-         data,
+         // data,
          listen = true,
          opponent,
          result,
@@ -132,7 +137,7 @@ $(document).ready(function() {
       // csv = csv.split(/\n/g);
       // jQuery.each(csv, function(i, line) {
       jQuery.each(data, function(i, record) {
-
+         // alert(record);
          // listen for data lines between the Graph and Table headers
          // if (record[''].match(/^Opponents.+/)) {
          //   listen == false;
@@ -164,6 +169,6 @@ $(document).ready(function() {
       options.series[1].data = theirScores;
       
       scores_chart = new Highcharts.Chart(options);
-   });
-   
+   // };
+    ;
 });
