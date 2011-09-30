@@ -19,13 +19,13 @@
   </div>
 
   <div class="clearfix">
-    <div class="fieldset">
+    <div class="field">
       <%= f.label :home_team_id %>
       <div class="input"><%= f.text_field :home_team_id %>  </div>
     </div>
   </div>
   
-  <div class="clearfix">
+  <div class="clearfix">   
     <div class="field">
       <%= f.label :away_team_id %>
       <div class="input"><%= f.text_field :away_team_id %>  </div>
@@ -35,23 +35,36 @@
   <div class="clearfix">
     <div class="field">
       <%= f.label :home_runs %>
-      <div class="input"><%= f.text_field :home_runs %>    </div>
+      <div class="input"><%= f.text_field :home_runs, :style => "font-size: 20px" %>    </div>
     </div>
   </div>
 
   <div class="clearfix">
     <div class="field">
       <%= f.label :away_runs %>
-      <div class="input"><%= f.text_field :away_runs %>   </div>
-    </div>
-  </div>
-  <div class="clearfix">
-    <div class="field">
-      <%= f.label :result, "Result (W/L/D/A/C) - leave blank for a guess" %>
-      <div class="input"><%= f.text_field :result %></div> 
+      <div class="input"><%= f.text_field :away_runs, :style => "font-size: 20px" %>   </div>
     </div>
   </div>
 
+  <div class="clearfix">
+    <label id="resultsRadio">Result (leave blank for a guess)</label>
+    <div class="input">
+      <ul class="inputs-list">
+        <li>
+            <%= f.radio_button :result, :w %>
+            <%= f.label :win %>
+        </li>
+        <li>
+          <%= f.radio_button :result, :l %> 
+          <%= f.label :loss %>
+        </li>        
+        <li>
+          <%= f.radio_button :result, :d %>
+          <%= f.label :draw %>
+      </ul>
+    </div> 
+  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
