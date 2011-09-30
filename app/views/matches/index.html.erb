@@ -16,20 +16,18 @@
       <div class="span 4">
         <h3>Summary results</h3>
           <table>
-            <thead>
               <tr>
                 <td>Won</td> 
-                <td>Drawn</td>
-                <td>Lost</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
                 <td><span class="label success"><%= @results[0] %></span></td>
+              </tr>
+              <tr>
+                <td>Drawn</td>
                 <td><span class="label warning"><%= @results[1] %></span></td>
+              </tr>
+              <tr>
+                <td>Lost</td>
                 <td><span class="label important"><%= @results[2] %></span></td>
               </tr>
-            </tbody>
           </table>
       </div>
     </div>

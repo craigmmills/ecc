@@ -51,16 +51,17 @@
     <div class="input">
       <ul class="inputs-list">
         <li>
-            <%= f.radio_button :result, :w %>
-            <%= f.label :win %>
+            <%= f.radio_button :result, :W %>
+            <%= f.label :win, :class => "label success" %>
         </li>
         <li>
-          <%= f.radio_button :result, :l %> 
-          <%= f.label :loss %>
-        </li>        
+          <%= f.radio_button :result, :D %>
+          <%= f.label :draw, :class => "label warning" %>
+        </li>
         <li>
-          <%= f.radio_button :result, :d %>
-          <%= f.label :draw %>
+          <%= f.radio_button :result, :L %> 
+          <%= f.label :loss, :class => "label important" %>
+        </li>        
       </ul>
     </div> 
   </div>
