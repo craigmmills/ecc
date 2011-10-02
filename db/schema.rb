@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927073429) do
+ActiveRecord::Schema.define(:version => 20110928180857) do
 
   create_table "matches", :force => true do |t|
     t.integer  "home_team_id"
     t.integer  "away_team_id"
-    t.string   "home_score"
-    t.string   "away_score"
+    t.string   "home_runs"
+    t.string   "away_runs"
     t.integer  "venue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "match_date"
+    t.integer  "home_wickets"
+    t.integer  "away_wickets"
+    t.string   "result"
   end
 
   create_table "news", :force => true do |t|
