@@ -8,10 +8,3 @@ one:
   mob_num: MyString
   home_num: MyString
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  description: MyString
-  mob_num: MyString
-  home_num: MyString

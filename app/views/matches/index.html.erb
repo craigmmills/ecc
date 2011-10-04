@@ -1,31 +1,86 @@
-<h1>Listing matches</h1>
+<div class="container">
+  <!-- Graphics section -->
+  <div class="row">
+    <!-- <div class="span16"> -->
+      <div class="span12 ">
+        <h2>Graph of glory</h2>
+      </div>
+      <div clas="span4">
+        <%= link_to "Add new match result", new_match_path, :class => "btn success" %>
+      </div>
+    <!-- </div>  -->
+    <div class="span16 well">
+      <div class="span12">
+        <div id="scores_chart" style="width: 600px; height: 250px"></div>
+      </div>
+      <div class="span 4">
+        <h3>Summary results</h3>
+          <table>
+              <tr>
+                <td>Won</td> 
+                <td><span class="label success" style="font-size: 20px"><%= @results[0] %></span></td>
+              </tr>
+              <tr>
+                <td>Drawn</td>
+                <td><span class="label warning" style="font-size: 20px"><%= @results[1] %></span></td>
+              </tr>
+              <tr>
+                <td>Lost</td>
+                <td><span class="label important" style="font-size: 20px"><%= @results[2] %></span></td>
+              </tr>
+          </table>
+      </div>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <th>Home team</th>
-    <th>Away team</th>
-    <th>Home score</th>
-    <th>Away score</th>
-    <th>Venue</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <!-- Listing all results -->
+  <div class="row">
+    <div class="span16">
+      <h2 >View all intelligence</h2>
 
-<% @matches.each do |match| %>
-  <tr>
-    <td><%= match.home_team_id %></td>
-    <td><%= match.away_team_id %></td>
-    <td><%= match.home_score %></td>
-    <td><%= match.away_score %></td>
-    <td><%= match.venue_id %></td>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+        <!-- TODO: Think this "container" div and all other bits could live in template - like application.html.erb -->
+        
+        
+        <!-- TODO: Fairly sure there are better places for this script to live, but it works for now -->
+        <script type="text/javascript" charset="utf-8">
+          $(document).ready(function() 
+              { 
+                  $("#results").tablesorter(); 
+              } 
+          );
+        </script>
 
-<br />
+        <table id="results" class="tablesorter zebra-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Home team</th>
+              <th>Away team</th>
+              <th>Home score</th>
+              <th>Away score</th>
+              <th>Venue</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @matches.each do |match| %>
+            <tr>
+              <td><%= link_to "#{match.match_date}", edit_match_path(match) %> </td>
+              <td><%= match.home_team_id %></td>
+              <td><%= match.away_team_id %></td>
+              <td><%= match.home_runs %></td>
+              <td><%= match.away_runs %></td>
+              <td><%= match.venue_id %></td>
+              <td><span class='label <%= label_result(match.result) %>'><%= match.result %></span></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<%= link_to 'New Match', new_match_path %>
+        <%= link_to 'Add new match result', new_match_path, :class => "btn success" %>
+        
+      </div>
+    </div>
+  </div>
+   
+</div>  

@@ -2,8 +2,8 @@
 
 one:
   venue_id: 1
-  name: MyString
+  name: Home team
 
 two:
   venue_id: 1
-  name: MyString
+  name: Away team
