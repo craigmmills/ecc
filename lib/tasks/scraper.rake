@@ -52,47 +52,71 @@ namespace :ecc do
           
           match["match_date"] = Date.parse(data[0].text)
           
-          home = false
-          #get the home or away status of elsworth
-          home = true if data[1].text.strip.upcase == "1ST XI" || data[1].text.strip.upcase == "2ND XI"
-          puts home
-          unless data[5].text.to_s.strip.upcase.match("ABANDONED") || data[5].text.to_s.strip.upcase.match("CANCELLED")
+          
+          #get the home or away status of elsworth and the oppostion team
+          if data[1].text.strip.upcase == "1ST XI" || data[1].text.strip.upcase == "2ND XI"
+            match["opposition"] = data[3].text
+            match["our_team"] = data[1].text
+            match["venue"] = "Elsworth"
+          else
+            match["opposition"] = data[1].text
+            match["our_team"] = data[3].text
+            match["venue"] = data[1].text
+          end
+          
+          #get result from first table
+          if data[5].text.upcase.match "ELSWORTH"
+            match["result"] = "Won"
+          elsif data[5].text.to_s.strip.upcase.match("ABANDONED") || data[5].text.to_s.strip.upcase.match("CANCELLED")
+            match["result"] = "No Result"
+          else
+            match["result"] = "Lost"
+          end
+          
+                    
+          #get the scores from the details page
+          #puts match
+          unless match["result"] == "No Result"
+            
             #gets url of the detailed scorecard
-            puts data[5].text.to_s.strip.upcase
             scorecard_url = "#{base_url}#{data[6].children.first['href']}"   
-            puts scorecard_url
             score_doc = Nokogiri::HTML(open(scorecard_url))
             
+            #figure out who batted first so we can get the scores in the right order     
+            order = score_doc.xpath('//h2//strong')
+            
+            if data[1].text.strip.upcase == "1ST XI" || data[1].text.strip.upcase == "2ND XI"
+              first = "opposition_"
+              second = "our_team_" 
+            else
+              first = "our_team_" 
+              second = "opposition_"
+            end
+         
             #need to get two types of scorecard- one where the data are full the other where it is patchy
             scores = score_doc.xpath('//tr[(((count(preceding-sibling::*) + 1) = 14) and parent::*)]//td[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]//strong')
             
             #try with different xpath if no results are returned     
             scores = score_doc.xpath('//td[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]//strong') if scores.empty?
-            
-            
-        
+                   
             #add the scores to match hash = TODO hard to know which team is which score - possibly use the order of the headers from the page
             
             if scores.length == 4
-              
+              match["#{first}runs"] = scores[1].text
+              match["#{second}runs"] = scores[3].text
             elsif scores.length == 2
-              
-            elsif scores.length == 1
-            
-              
-            end
-            
-             
-            puts scores
+              match["#{first}runs"] = scores[0].text
+              match["#{second}runs"] = scores[1].text
+            end    
+            puts match       
           end
           #going to have to deal with edgecases where scores are missing
           
-
+          
           #TODO Match.new(:home_team_id => "", :away_team_id => , :match_date => )
         end
       end
       
     end    
 end
-
 
