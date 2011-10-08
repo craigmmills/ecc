@@ -37,8 +37,8 @@ namespace :ecc do
     task :get_results => :environment do
       
       base_url = "http://elsworth.play-cricket.com/scoreboard/"
-      
-      15.times do |i|
+      matches = Array.new
+      2.times do |i|
         html = "#{base_url}results.asp?page=#{i.to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
         
         doc = Nokogiri::HTML(open(html))
@@ -61,7 +61,10 @@ namespace :ecc do
           else
             match["opposition"] = data[1].text
             match["our_team"] = data[3].text
-            match["venue"] = data[1].text
+            
+            #remove the team type from the venue
+            
+            match["venue"] = data[1].text.split("-")[0].strip
           end
           
           #get result from first table
@@ -108,15 +111,50 @@ namespace :ecc do
               match["#{first}runs"] = scores[0].text
               match["#{second}runs"] = scores[1].text
             end    
-            puts match       
+            # puts match       
           end
           #going to have to deal with edgecases where scores are missing
           
-          
+          matches << match
+          print "."
           #TODO Match.new(:home_team_id => "", :away_team_id => , :match_date => )
         end
+        
+        
+        
       end
       
+      fill_all_refs matches
+      #puts matches
     end    
 end
+
+def fill_all_refs data
+  puts "fill"
+  
+  Venue.destroy_all
+  data.each do |match|
+    unless Venue.find(:first, :conditions => [ "name = ?", match["venue"]])
+      v = Venue.new(:name => match["venue"]) 
+      v.save
+      puts v
+    end
+  end
+  
+  Opposition.destroy_all
+  data.each do |match|
+    unless Opposition.find(:first, :conditions => [ "name = ?", match["opposition"]])
+      v = Opposition.new(:name => match["opposition"]) 
+      v.save
+      puts v
+    end
+  end
+  
+  
+  
+  
+end
+
+
+
 
