@@ -38,7 +38,7 @@ namespace :ecc do
       
       base_url = "http://elsworth.play-cricket.com/scoreboard/"
       matches = Array.new
-      2.times do |i|
+      15.times do |i|
         html = "#{base_url}results.asp?page=#{i.to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
         
         doc = Nokogiri::HTML(open(html))
@@ -63,8 +63,8 @@ namespace :ecc do
             match["our_team"] = data[3].text
             
             #remove the team type from the venue
-            
-            match["venue"] = data[1].text.split("-")[0].strip
+            venue = data[1].text.to_s.split("-")[0]
+            match["venue"] = venue[0..-2] #strip didn't work on this due to some weird invisible character
           end
           
           #get result from first table
@@ -102,56 +102,83 @@ namespace :ecc do
             #try with different xpath if no results are returned     
             scores = score_doc.xpath('//td[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]//strong') if scores.empty?
                    
-            #add the scores to match hash = TODO hard to know which team is which score - possibly use the order of the headers from the page
-            
+            #add the scores to match array size- sometimes the scrape returns different number of tds depending on the page
             if scores.length == 4
               match["#{first}runs"] = scores[1].text
               match["#{second}runs"] = scores[3].text
             elsif scores.length == 2
               match["#{first}runs"] = scores[0].text
               match["#{second}runs"] = scores[1].text
-            end    
-            # puts match       
+            end      
           end
-          #going to have to deal with edgecases where scores are missing
           
+          #TODO deal with edgecases where scores are missing
+          
+          #add match to matches array
           matches << match
           print "."
-          #TODO Match.new(:home_team_id => "", :away_team_id => , :match_date => )
+          
         end
-        
-        
         
       end
       
-      fill_all_refs matches
+      #fill all the refs before adding the matches
+      fill_all_models matches
+      
+      #fill matches table
+      Match.destroy_all
+      matches.each do |match|
+        m = Match.new(
+                  :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
+                  :opposition_id => Opposition.find(:first, :conditions => ["name = ?", match["opposition"]]).id,
+                  :our_runs => match["our_team_runs"],
+                  :opposition_runs => match["opposition_runs"],
+                  :venue_id => Venue.find(:first, :conditions => ["name = ?", match["venue"]]).id,
+                  :match_date => match["match_date"],
+                  :result => match["result"]
+                  )
+        m.save          
+      end
+      
+      
       #puts matches
     end    
 end
 
-def fill_all_refs data
+# id      
+# our_team_id     
+# opposition_id     
+# our_runs      
+# opposition_runs     
+# venue_id      
+# created_at      
+# updated_at      
+# match_date      
+# our_wickets     
+# opposition_wickets      
+# result
+
+def fill_all_models data
   puts "fill"
   
   Venue.destroy_all
+  Opposition.destroy_all
   data.each do |match|
     unless Venue.find(:first, :conditions => [ "name = ?", match["venue"]])
       v = Venue.new(:name => match["venue"]) 
       v.save
       puts v
     end
-  end
-  
-  Opposition.destroy_all
-  data.each do |match|
+    
     unless Opposition.find(:first, :conditions => [ "name = ?", match["opposition"]])
-      v = Opposition.new(:name => match["opposition"]) 
-      v.save
-      puts v
+      o = Opposition.new(:name => match["opposition"]) 
+      o.save
+      puts o
     end
   end
   
   
-  
+    
   
 end
 
