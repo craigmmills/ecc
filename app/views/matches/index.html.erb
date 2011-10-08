@@ -66,10 +66,10 @@
             <% @matches.each do |match| %>
             <tr>
               <td><%= link_to "#{match.match_date}", edit_match_path(match) %> </td>
-              <td><%= match.home_team_id %></td>
-              <td><%= match.away_team_id %></td>
-              <td><%= match.home_runs %></td>
-              <td><%= match.away_runs %></td>
+              <td><%= match.our_team_id %></td>
+              <td><%= match.opposition_id %></td>
+              <td><%= match.our_runs %></td>
+              <td><%= match.opposition_runs %></td>
               <td><%= match.venue_id %></td>
               <td><span class='label <%= label_result(match.result) %>'><%= match.result %></span></td>
             </tr>

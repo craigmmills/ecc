@@ -26,8 +26,8 @@ class MatchesController < ApplicationController
   def new
     @match = Match.new
     @match.match_date = Match.last.match_date + 7
-    @match.home_team_id = 1
-    @match.away_team_id = 2
+    @match.our_team_id = 1
+    @match.opposition_id = 2
   end
   
   def create

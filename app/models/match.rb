@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
   belongs_to :venue
-  belongs_to :opposition, :foreign_key => "away_team_id"
-  belongs_to :our_team, :foreign_key => "home_team_id"
+  belongs_to :opposition
+  belongs_to :our_team
 
   # TODO: no idea if this should go here, but it should work
   # Checks input for "last sunday" and finds most recent Sunday in the past
@@ -20,7 +20,7 @@ class Match < ActiveRecord::Base
   def guess_result
     # puts home_runs
     # puts away_runs
-    case home_runs <=> away_runs
+    case our_runs <=> opposition_runs
     when 1
       return "W"
     when -1

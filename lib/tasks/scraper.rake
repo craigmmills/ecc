@@ -52,18 +52,37 @@ namespace :ecc do
           
           match["match_date"] = Date.parse(data[0].text)
           
-          
-          if !data[5].text.to_s.strip.upcase.match("ABANDONED")
+          home = false
+          #get the home or away status of elsworth
+          home = true if data[1].text.strip.upcase == "1ST XI" || data[1].text.strip.upcase == "2ND XI"
+          puts home
+          unless data[5].text.to_s.strip.upcase.match("ABANDONED") || data[5].text.to_s.strip.upcase.match("CANCELLED")
             #gets url of the detailed scorecard
             puts data[5].text.to_s.strip.upcase
             scorecard_url = "#{base_url}#{data[6].children.first['href']}"   
+            puts scorecard_url
             score_doc = Nokogiri::HTML(open(scorecard_url))
             
             #need to get two types of scorecard- one where the data are full the other where it is patchy
             scores = score_doc.xpath('//tr[(((count(preceding-sibling::*) + 1) = 14) and parent::*)]//td[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]//strong')
+            
             #try with different xpath if no results are returned     
             scores = score_doc.xpath('//td[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]//strong') if scores.empty?
-          
+            
+            
+        
+            #add the scores to match hash = TODO hard to know which team is which score - possibly use the order of the headers from the page
+            
+            if scores.length == 4
+              
+            elsif scores.length == 2
+              
+            elsif scores.length == 1
+            
+              
+            end
+            
+             
             puts scores
           end
           #going to have to deal with edgecases where scores are missing
