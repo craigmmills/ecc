@@ -1,31 +1,9 @@
 # will use this to scrape play-cricket website for all
 # fixtures, results, player stats, opponent stats
 
-# doc = Nokogiri::HTML(open("http://elsworth.play-cricket.com/scoreboard/results.asp?
-# page=2&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="))
-# t = doc.xpath('//table[@class = "data"]/tr')
-# t.each do |tr|
-#tr[5]
-#end
-
-
-# fields in the match table
-
-#         home_team_id      
-#         away_team_id      
-#         home_runs     
-#         opposition_runs     
-#         venue_id      
-#         created_at      
-#         updated_at      
-#         match_date      
-#         home_wickets      
-#         opposition_wickets        
-#         result
-
-
-#collect all away teams and insert into model
-
+#1.  get all the matches, results with runs and wickets for all opposition
+#2.  get recent results from opposition 
+#3.  get top scores of recent players of elsworth
 
 require 'open-uri'
 require 'nokogiri'          
@@ -159,18 +137,6 @@ namespace :ecc do
     end    
 end
 
-# id      
-# our_team_id     
-# opposition_id     
-# our_runs      
-# opposition_runs     
-# venue_id      
-# created_at      
-# updated_at      
-# match_date      
-# our_wickets     
-# opposition_wickets      
-# result
 
 def fill_all_models data
   puts "fill"
