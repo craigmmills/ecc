@@ -30,7 +30,8 @@ $(document).ready(function() {
       },
       
       yAxis: [{ // left y axis
-         title: {
+         max: 300,
+		 title: {
             text: null
          },
          labels: {
@@ -41,9 +42,10 @@ $(document).ready(function() {
                return Highcharts.numberFormat(this.value, 0);
             }
          },
-         showFirstLabel: false
+         showFirstLabel: false, max: 300
       }, { // right y axis
          linkedTo: 0,
+		 max: 300,
          gridLineWidth: 0,
          opposite: true,
          title: {
@@ -148,18 +150,18 @@ $(document).ready(function() {
             // line = line.split(",");
             
             date = Date.parse(record['match_date']); // dropped the "+ 'UTC' " which was causing probs in FF
-            opponent = record['away_team_id'];
+            opponent = record['opposition_id'];
 
             // opponent = line[0];
 
             ourScores.push([
                date,
-               parseInt(record['home_runs']),
+               parseInt(record['our_runs']),
                opponent
             ]);
             theirScores.push([
                date,
-               parseInt(record['away_runs']),
+               parseInt(record['opposition_runs']),
                opponent
             ]);
          }

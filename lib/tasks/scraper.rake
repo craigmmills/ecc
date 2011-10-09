@@ -38,7 +38,8 @@ namespace :ecc do
       
       base_url = "http://elsworth.play-cricket.com/scoreboard/"
       matches = Array.new
-      15.times do |i|
+      
+      22.times do |i|
         html = "#{base_url}results.asp?page=#{i.to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
         
         doc = Nokogiri::HTML(open(html))
@@ -109,7 +110,18 @@ namespace :ecc do
             elsif scores.length == 2
               match["#{first}runs"] = scores[0].text
               match["#{second}runs"] = scores[1].text
-            end      
+            end   
+            
+            #get the wickets from the scorecard page
+            wickets = score_doc.xpath('//*[(@id = "scorecard")]//td')     
+            wicket_type = first
+            wickets.each do |td|
+              if td.text.match("wickets")
+                match["#{wicket_type}wickets"] = td.text.scan(/\d+/)[0]
+                wicket_type = second
+              end
+            end
+            
           end
           
           #TODO deal with edgecases where scores are missing
@@ -133,6 +145,8 @@ namespace :ecc do
                   :opposition_id => Opposition.find(:first, :conditions => ["name = ?", match["opposition"]]).id,
                   :our_runs => match["our_team_runs"],
                   :opposition_runs => match["opposition_runs"],
+                  :opposition_wickets => match["opposition_wickets"],
+                  :our_wickets => match["our_team_wickets"],
                   :venue_id => Venue.find(:first, :conditions => ["name = ?", match["venue"]]).id,
                   :match_date => match["match_date"],
                   :result => match["result"]
@@ -176,9 +190,6 @@ def fill_all_models data
       puts o
     end
   end
-  
-  
-    
   
 end
 
