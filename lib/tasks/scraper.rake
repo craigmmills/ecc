@@ -18,6 +18,7 @@ namespace :ecc do
       matches = Array.new
       
       22.times do |i|
+        puts i
         html = "#{base_url}results.asp?page=#{i.to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
         
         doc = Nokogiri::HTML(open(html))
@@ -117,6 +118,9 @@ namespace :ecc do
       
       #fill matches table
       Match.destroy_all
+      puts matches.to_yaml
+      puts matches.length
+      
       matches.each do |match|
         m = Match.new(
                   :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
@@ -135,7 +139,13 @@ namespace :ecc do
       
       #puts matches
     end    
-end
+    
+    
+    
+    
+    
+    
+end #namespace
 
 
 def fill_all_models data

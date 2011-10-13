@@ -2,6 +2,19 @@ class Match < ActiveRecord::Base
   belongs_to :venue
   belongs_to :opposition
   belongs_to :our_team
+  
+  
+  scope :fixtures, where("matches.result IS NULL")
+  # scope :results, where("match.result IS NOT NULL")
+  #   scope :latest_results, :order => "match.results.match_date DESC", :limit => 5
+  
+  
+  scope :our_results, where("matches.result IS NOT NULL")
+  scope :latest_results, limit(5).our_results.order("matches.match_date DESC")
+
+  
+  # scope :recent, published.order("posts.published_at DESC")
+  
 
   # TODO: no idea if this should go here, but it should work
   # Checks input for "last sunday" and finds most recent Sunday in the past
