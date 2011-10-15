@@ -20,11 +20,6 @@ namespace :ecc do
       
       21.times do |i|
         
-        
-        
-        
-        
-        
         puts i
         html = "#{base_url}results.asp?page=#{(i+1).to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
         puts html
@@ -145,12 +140,6 @@ namespace :ecc do
          
         end
         
-        
-        
-        
-        
-        
-      #end #main loop
     end #task
 end #namespace
 

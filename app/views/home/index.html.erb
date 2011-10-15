@@ -2,55 +2,37 @@
   <h1>I'll get some player/team/ground pictures in here as we develop the site further</h1>
 </div>
 
-
-
 <div class="container">
   <div class="row">
     <div class="span6 columns">
     
       <div class="well">
-        <h2 class="page-header">Hire our ground</h2>
-    
+        <h2 class="page-header">Hire our ground</h2>    
         <h3>Quality cricket pitch, pavilion and professional tea for £200.</h3>
         <p>add pics and links etc</p>
       </div>
     
-    
       <div class="well">
-        <h2 class="page-header">Latest Scores</h2>
-  		<% @latest_results.each do |resul| %>
-			<p><%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %>
-			<span class='label <%= label_result(resul.result) %>'><%= resul.result %></span></p>
-			
-			
-		<% end %>     
+	      <h2 class="page-header">Latest Scores</h2>
+	  		<% @latest_results.each do |resul| %>
+					<p><%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %>
+					<span class='label <%= label_result(resul.result) %>'><%= resul.result %></span></p>
+				<% end %>     
       </div>
     </div>
   
-  
-  
     <div class="span10 columns">
-    
-    
       <h2 class="page-header">Next Fixtures</h2>
-  
+	  		<% @fixtures.each do |fixture| %>
+					 <p><%= link_to fixture.match_date, fixture %> <%= fixture.opposition.name %></p>
+				<% end %>    
+      <br/>
 
-	<% @fixtures.each do |fixture| %>
-		<h3> <%= fixture.opposition.name %></h3>
-	<% end %>
-    
-      <br/><br/><br/><br/>
-    
       <h2 class="page-header">News</h2>
-      <% @news.each do |news| %>
-
-  	  <h3> <%= link_to news.title, news %> </h3>
-  	  <p> <%= news.description %></p>
-
-  	<% end %>
-
-  
-    
+	    <% @news.each do |news| %>
+	  	  <h3> <%= link_to news.title, news %> </h3>
+	  	  <p> <%= news.description %></p>
+			<% end %>
     </div>
   </div>  
 </div>
