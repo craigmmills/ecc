@@ -5,15 +5,14 @@ class Match < ActiveRecord::Base
   
   
   scope :fixtures, where("matches.result IS NULL")
-  # scope :results, where("match.result IS NOT NULL")
-  #   scope :latest_results, :order => "match.results.match_date DESC", :limit => 5
-  
-  
   scope :our_results, where("matches.result IS NOT NULL")
   scope :latest_results, limit(5).our_results.order("matches.match_date DESC")
 
   
-  # scope :recent, published.order("posts.published_at DESC")
+  #check if match has no results (then it's a fixture)
+  def fixture?
+    self.result == nil
+  end
   
 
   # TODO: no idea if this should go here, but it should work

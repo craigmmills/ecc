@@ -1,4 +1,5 @@
 namespace :ecc do 
+  namespace :dev do
     desc "add a handful of fixtures for testing"
     task :add_fixtures => :environment do
       
@@ -19,5 +20,6 @@ namespace :ecc do
          
        end
     end
+  end
 end
   
