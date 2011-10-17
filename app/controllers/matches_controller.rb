@@ -17,6 +17,9 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     
+    
+    
+    
     #choose view based on fixture or result
     if @match.fixture?
       render 'fixture' 
