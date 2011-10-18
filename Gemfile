@@ -43,3 +43,7 @@ group :test do
   gem 'turn', :require => false
 end
 gem "devise"
+
+group :development do
+  gem 'irbtools-more'
+end
