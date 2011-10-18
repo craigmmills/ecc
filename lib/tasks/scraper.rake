@@ -8,18 +8,21 @@
 require 'open-uri'
 require 'nokogiri'          
 require 'date'
+require 'csv'
 
 
 namespace :ecc do 
     desc "get all results from play-cricket"
     task :get_results => :environment do
-      
+       
       base_url = "http://elsworth.play-cricket.com/scoreboard/"
       matches = Array.new
       
-      22.times do |i|
-        html = "#{base_url}results.asp?page=#{i.to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
+      21.times do |i|
         
+        puts i
+        html = "#{base_url}results.asp?page=#{(i+1).to_s}&startDay=&quickSearch=&startYear=&team=&seasonID=&fromForm=1&endMonth=&startMonth=&endYear=&endDay=&type="
+        puts html
         doc = Nokogiri::HTML(open(html))
         t = doc.xpath('//table[@class = "data"]/tr')
         
@@ -56,6 +59,10 @@ namespace :ecc do
           end
           
                     
+                    
+          
+          #TODO add the play url to the match model
+          
           #get the scores from the details page
           #puts match
           unless match["result"] == "No Result"
@@ -117,25 +124,28 @@ namespace :ecc do
       
       #fill matches table
       Match.destroy_all
-      matches.each do |match|
-        m = Match.new(
-                  :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
-                  :opposition_id => Opposition.find(:first, :conditions => ["name = ?", match["opposition"]]).id,
-                  :our_runs => match["our_team_runs"],
-                  :opposition_runs => match["opposition_runs"],
-                  :opposition_wickets => match["opposition_wickets"],
-                  :our_wickets => match["our_team_wickets"],
-                  :venue_id => Venue.find(:first, :conditions => ["name = ?", match["venue"]]).id,
-                  :match_date => match["match_date"],
-                  :result => match["result"]
-                  )
-        m.save          
-      end
-      
-      
-      #puts matches
-    end    
-end
+      puts matches.to_yaml
+      puts matches.length
+     
+        
+        matches.each do |match|
+          m = Match.new(
+                    :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
+                    :opposition_id => Opposition.find(:first, :conditions => ["name = ?", match["opposition"]]).id,
+                    :our_runs => match["our_team_runs"],
+                    :opposition_runs => match["opposition_runs"],
+                    :opposition_wickets => match["opposition_wickets"],
+                    :our_wickets => match["our_team_wickets"],
+                    :venue_id => Venue.find(:first, :conditions => ["name = ?", match["venue"]]).id,
+                    :match_date => match["match_date"],
+                    :result => match["result"]
+                    )
+          m.save 
+         
+        end
+        
+    end #task
+end #namespace
 
 
 def fill_all_models data

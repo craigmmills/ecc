@@ -16,11 +16,21 @@ class MatchesController < ApplicationController
   # GET /matches/1.json
   def show
     @match = Match.find(params[:id])
-
+    
+    
+    
+    
+    #choose view based on fixture or result
+    if @match.fixture?
+      render 'fixture' 
+    else  
+      
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @match }
     end
+  end
+  
   end
   
   def new
