@@ -2,18 +2,26 @@ class Match < ActiveRecord::Base
   belongs_to :venue
   belongs_to :opposition
   belongs_to :our_team
-
-  # TODO: no idea if this should go here, but it should work
-  # Checks input for "last sunday" and finds most recent Sunday in the past
-  def human_date
-    # Accept either a date in "DD/MM/YY" or "DD/MM" or "last sunday" "last sun" or "last saturday" "last sat"
-    # Abandoned this when realised how well date.parse works
+  
+  
+  scope :fixtures, where("matches.result IS NULL")
+  scope :our_results, where("matches.result IS NOT NULL")
+  scope :latest_results, limit(10).our_results.order("matches.match_date DESC")
+  
+  
+  
+  
+  
+  #check if match has no results (then it's a fixture)
+  def fixture?
+    self.result == nil
   end
   
+  
   def self.summary_results
-    won = Match.where(:result => "W").count
-    drawn = Match.where(:result => "D").count
-    lost = Match.where(:result => "L").count
+    won = Match.where(:result => "Won").count
+    drawn = Match.where(:result => "Draw").count
+    lost = Match.where(:result => "Lost").count
     return [won, drawn, lost]
   end
 
