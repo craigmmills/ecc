@@ -59,6 +59,10 @@ namespace :ecc do
           end
           
                     
+                    
+          
+          #TODO add the play url to the match model
+          
           #get the scores from the details page
           #puts match
           unless match["result"] == "No Result"

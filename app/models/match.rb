@@ -6,7 +6,7 @@ class Match < ActiveRecord::Base
   
   scope :fixtures, where("matches.result IS NULL")
   scope :our_results, where("matches.result IS NOT NULL")
-  scope :latest_results, limit(5).our_results.order("matches.match_date DESC")
+  scope :latest_results, limit(10).our_results.order("matches.match_date DESC")
   
   
   
