@@ -32,6 +32,7 @@ gem 'jquery-rails'
 
 
 group :production do
+#this might be causing a problem to heroku
   gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
@@ -40,6 +41,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
 gem "devise"
 
 group :development do
