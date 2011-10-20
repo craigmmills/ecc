@@ -122,7 +122,7 @@ $(document).ready(function() {
    // Original line follows:
    // jQuery.get('/matches.json', function(data) {
    
-   var data = [<%= Match.all.to_json %>][0];
+   var data = [<%= Match.all(:limit  => 10).to_json %>][0];
    // function(data) {
       var //lines = [],
          // data,

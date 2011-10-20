@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all(:order => 'match_date DESC')
+    @matches = Match.all(:order => 'match_date DESC', :limit  => 10)
     
     @results = Match.summary_results
     
