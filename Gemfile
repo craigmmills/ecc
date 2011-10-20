@@ -30,8 +30,6 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'
@@ -46,4 +44,7 @@ gem "devise"
 
 group :development do
   gem 'irbtools-more'
+	# To use debugger
+	gem 'ruby-debug19', :require => 'ruby-debug'
+
 end
