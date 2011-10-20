@@ -11,7 +11,9 @@ require 'date'
 require 'csv'
 
 
+
 namespace :ecc do 
+    # require 'ruby-debug19' 
     desc "get all results from play-cricket"
     task :get_results => :environment do
        
@@ -121,13 +123,14 @@ namespace :ecc do
       
       #fill all the refs before adding the matches
       fill_all_models matches
+      create_our_teams
       
       #fill matches table
       Match.destroy_all
       puts matches.to_yaml
       puts matches.length
      
-        
+      debugger  
         matches.each do |match|
           m = Match.new(
                     :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
@@ -167,6 +170,14 @@ def fill_all_models data
     end
   end
   
+end  
+
+def create_our_teams
+  OurTeam.create(:name=>"1st XI")
+  OurTeam.create(:name=>"2nd XI")
+  puts "=============="
+  puts "Added OurTeams"
+  puts "=============="
 end
 
 
