@@ -21,7 +21,11 @@
       </div>
     </div>
   
+		
     <div class="span10 columns">
+			<div class="well">
+				
+		
       <h2 class="page-header">Next Fixtures</h2>
 	  		<% @fixtures.each do |fixture| %>
 					 <p><%= link_to fixture.match_date, fixture %> <%= fixture.opposition.name %></p>
@@ -33,6 +37,8 @@
 	  	  <h3> <%= link_to news.title, news %> </h3>
 	  	  <p> <%= news.description %></p>
 			<% end %>
+				</div>
+			
     </div>
   </div>  
 </div>

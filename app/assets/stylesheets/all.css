@@ -1,4 +1,7 @@
 body {
-  background-color: #fff;
   background: url(pool_table.png);
+}
+
+h2 {
+	color: white;
 }
