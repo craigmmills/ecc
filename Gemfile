@@ -33,7 +33,7 @@ gem 'jquery-rails'
 
 group :production do
 #this might be causing a problem to heroku
-  gem 'therubyracer-heroku', '0.8.1.pre3'
+  #gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 
