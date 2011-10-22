@@ -50,6 +50,20 @@ class NewsController < ApplicationController
     @news = News.find(params[:id])
   end
   
+  def update
+    @news = News.find(params[:id])
+
+    respond_to do |format|
+      if @news.update_attributes(params[:news])
+        format.html { redirect_to @news, notice: 'News was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @news.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   def destroy
     @news = News.find(params[:id])
     @news.destroy

@@ -2,15 +2,12 @@
   <div class="container"><h1>  <%= @news.title %> </h1> </div>
 </div>
 
-
 <div class="container">
 	<div class="span16 columns">
 		<div class="well">
-			<%= @news.description %>
+			<%= simple_format(@news.description) %>
 		</div>
-		
 	</div>
-	
 </div>
 
 
