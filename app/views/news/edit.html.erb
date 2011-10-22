@@ -8,7 +8,8 @@
 			</h2><!-- TODO: Think this "container" div and all other bits should live in template - like application.html.erb -->
 			
 			
-				<%= render 'form' %>
+				<%= render 'form' %><%= link_to 'Delete News', @news, confirm: 'Are you sure?', method: :delete %>
+			
 		</div>
 	</div>
 </div>
