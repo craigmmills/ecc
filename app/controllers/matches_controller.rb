@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all(:order => 'match_date DESC', :limit  => 10)
+    @matches = Match.our_results(:order => 'match_date DESC', :limit  => 30)
     
     @results = Match.summary_results
     
@@ -16,9 +16,6 @@ class MatchesController < ApplicationController
   # GET /matches/1.json
   def show
     @match = Match.find(params[:id])
-    
-    
-    
     
     #choose view based on fixture or result
     if @match.fixture?
