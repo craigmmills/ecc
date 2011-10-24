@@ -82,7 +82,11 @@ class MatchesController < ApplicationController
       format.json { head :ok }
     end
   end
-
-
+  
+  # TODO: Maybe this 'season' method belongs somewhere else
+  def season
+    @fixtures = Match.fixtures
+    @results = Match.our_results
+  end
   
 end
