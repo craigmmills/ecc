@@ -1,48 +1,43 @@
-<div class="results">
   <div class="row well">
-  
-    <div class="row" id="main_results">
-      <div class="span8">
+    <div class="row slim" id="main_results">
+      <div class="span7">
         <h2>
           <small>vs</small>
           <%= Opposition.find(local_result.opposition_id).name %>
           </h2>
       </div>
-      <div class="span4 offset3">
+      <div class="span4">
         <div class="row">
-          <div class="span4">
+          <div class="span4" style="text-align:right; float:right">
           <%= span_result(local_result.result, 'Won') %>
           <%= span_result(local_result.result, 'Drawn') %>
           <%= span_result(local_result.result, 'Lost') %>
           </div>
-          <div class="span4">
+          <div class="span4" style="text-align:right; float:right">
             <small><%= local_result.match_date.strftime("#{local_result.match_date.day.ordinalize} %b '%y") %></small>
           </div>
         </div> 
       </div>
     </div>
   
-    <div class="row" id="detailed_scores">
-      <div class="span6">
-        <div class="span3">
+    <div class="row slim" id="detailed_scores">
+      <div class="span4 offset2">
+        <!-- <div class="span2"> -->
           <h1 style="margin-bottom:0px"><%= local_result.our_runs || '-' %>
             <small>for</small>
             <%= local_result.our_wickets %>
           </h1>
-        </div>
+        <!-- </div> -->
         <!-- <div class="span3" style="text-align:right" ><em class="grey">For</em></div> -->
       </div>    
-      <div class="span6">
-        <div class="span3">
+      <div class="span4">
+        <!-- <div class="span2"> -->
           <h1 style="margin-bottom:0px"><%= local_result.opposition_runs || '-' %>
             <small>for</small>
             <%= local_result.opposition_wickets %>
           </h1>
-        </div>
+        <!-- </div> -->
         <!-- <div class="span3" style="text-align:right" ><em class="grey">Against</em></div> -->
       </div>    
     </div>
-
-
   </div> 
-</div>

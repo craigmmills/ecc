@@ -14,7 +14,8 @@ Ecc::Application.routes.draw do
   get "home/index"
 
   match "/intelligence" => "matches#index"
-  match "/season" => "matches#season"
+  match "/season/:year" => "matches#season"
+  match "/season/" => "matches#season"
   
   match "/players/:id" => "players#show"
 
