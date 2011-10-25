@@ -91,7 +91,8 @@ class MatchesController < ApplicationController
     @results = Match.current_season(@year)            
     # TODO: Remove this dummy data
     # @results = Match.where('id > 14').limit(5)
-    @summary = @results.summary_results
+    @summary = @results.summary_results          
+    
   end
   
 end
