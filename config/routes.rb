@@ -2,24 +2,26 @@ Ecc::Application.routes.draw do
   
 
   resources :home_teams
-
   resources :teams
-
   resources :matches
-
   resources :venues
-
-  resources :news
-  resources :players                   
+  resources :news do 
+    get 'store'
+  end
+  
+  resources :players
+                     
   get "home/index"
 
   match "/intelligence" => "matches#index"
-  
   match "/players/:id" => "players#show"
+  #match "/news/"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root :to => "home#index" 
   devise_for :users
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -21,8 +21,8 @@ class NewsController < ApplicationController
     end
   end
   
-  # GET /tests/new
-  # GET /tests/new.json
+  # GET /news/new
+  # GET /news/new.json
   def new
     @news = News.new
 
@@ -33,9 +33,36 @@ class NewsController < ApplicationController
   end
   
   def create
-   @news = News.new(params[:news])
+    
+    puts "#{params[:commit]} ****************************************"
+  if params[:commit] == "presave"
+    
+    puts "got into the presave section"
+    
+    @temp_news = News.new(params[:news])   
+    respond_to do |format|
 
+       
+         #format.html { redirect_to @temp_news, notice: 'News was successfully created.' }
+        
+
+     end
+  
+  
+  else
+    
+    puts "got into the next stage section"
+    
+    if @temp_news
+      @news = @temp_news
+    else
+      @news = News.new(params[:news])
+    end
+    
+    @temp_news = nil
+    
    respond_to do |format|
+     
      if @news.save
        format.html { redirect_to @news, notice: 'News was successfully created.' }
        format.json { render json: @news, status: :created, location: @news }
@@ -43,8 +70,27 @@ class NewsController < ApplicationController
        format.html { render action: "new" }
        format.json { render json: @news.errors, status: :unprocessable_entity }
      end
+     
    end
+   
+   @temp_news = nil
   end
+  
+    
+    
+  end
+  
+  
+  def store
+    
+    puts 'getting the store'
+    @temp_news = News.new(params[:news])
+    
+  end
+  
+    
+  
+  
   
   def edit
     @news = News.find(params[:id])
