@@ -1,0 +1,26 @@
+<div class="row well">
+  <div class="row">
+    <div class="span2">
+      <h3>Result</h3>
+    </div>
+    <div class="span10">
+      <h4>vs <%= local_result.opposition_id %></h4>
+    </div>
+    <div class="span4 offset2" style="float:right;text-align:right">
+      <%= span_result(local_result.result, 'Won') %>
+      <%= span_result(local_result.result, 'Drawn') %>
+      <%= span_result(local_result.result, 'Lost') %>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="span5">
+      <%= local_result.our_team_id %>
+    </div>
+    <div class="span5">
+      Here
+    </div>
+    <div class="span5">
+      Here
+    </div>
+  </div>
+</div> 

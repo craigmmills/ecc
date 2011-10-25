@@ -4,9 +4,12 @@
       <h2>This is what the season looks like on <%= Date.today %></h2> <!-- TODO  Does the Date need to be lambda? -->
     </div>
   </div>
-  <div class="row">
-    <div class="span16 well">
-      <h3>Another</h3>
+  <% @results.each do |result|%>
+    <%= render :partial => 'result', :locals => {:local_result => result} %>
+  <% end %>
+  <div class='row'>
+    <div class="span4 offset8">
+      <h6>Something over here</h6>
     </div>
   </div>
 </div>

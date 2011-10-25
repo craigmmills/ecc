@@ -86,7 +86,8 @@ class MatchesController < ApplicationController
   # TODO: Maybe this 'season' method belongs somewhere else
   def season
     @fixtures = Match.fixtures
-    @results = Match.our_results
+    # @results = Match.our_results
+    @results = Match.first(5)
   end
   
 end
