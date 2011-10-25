@@ -85,8 +85,10 @@ class MatchesController < ApplicationController
   
   # TODO: Maybe this 'season' method belongs somewhere else
   def season
-    # @fixtures = Match.fixtures
-    @results = Match.current_season(2011)            
+    # @fixtures = Match.fixtures        
+    year = params[:year] || 2011
+    puts year
+    @results = Match.current_season(year)            
     # TODO: Remove this dummy data
     # @results = Match.where('id > 14').limit(5)
 

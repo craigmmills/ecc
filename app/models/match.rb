@@ -7,7 +7,7 @@ class Match < ActiveRecord::Base
   scope :fixtures, where("matches.result IS NULL")
   scope :our_results, where("matches.result IS NOT NULL")
   scope :latest_results, limit(10).our_results.order("matches.match_date DESC")
-  scope :current_season, where("EXTRACT(YEAR FROM match_date) = ?", 2011)
+  scope :current_season, lambda { |*year| {:conditions => ("EXTRACT(YEAR FROM match_date) = #{year[0]}")}}
   
   
   
