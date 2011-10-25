@@ -121,8 +121,8 @@ $(document).ready(function() {
 
    // Original line follows:
    // jQuery.get('/matches.json', function(data) {
-   
-   var data = [<%= Match.all.to_json %>][0];
+<% debugger %>                         
+   var data = [<%= Match.current_season(2011).to_json %>][0];
    // function(data) {
       var //lines = [],
          // data,

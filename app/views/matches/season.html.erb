@@ -11,7 +11,21 @@
       <% end %>         
     </div> 
     <div class="span4">
-      <h2>Season to-date</h2>
+      <h2><%= @year %> season summary</h2>
+      <table>
+          <tr>
+            <td>Won</td> 
+            <td><span class="label success" style="font-size: 20px"><%= @summary[0] %></span></td>
+          </tr>
+          <tr>
+            <td>Drawn</td>
+            <td><span class="label warning" style="font-size: 20px"><%= @summary[1] %></span></td>
+          </tr>
+          <tr>
+            <td>Lost</td>
+            <td><span class="label important" style="font-size: 20px"><%= @summary[2] %></span></td>
+          </tr>
+      </table>
     </div>
   </div>
 </div>

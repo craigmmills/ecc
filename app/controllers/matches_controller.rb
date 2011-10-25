@@ -2,10 +2,11 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all(:order => 'match_date DESC')
-    
-    @results = Match.summary_results
-    
+    @year = session[:year] || params[:year] || 2011
+    @matches = Match.current_season(@year)
+    # @matches = Match.all(:order => 'match_date DESC')
+    @summary = @matches.summary_results
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @matches }
@@ -86,12 +87,11 @@ class MatchesController < ApplicationController
   # TODO: Maybe this 'season' method belongs somewhere else
   def season
     # @fixtures = Match.fixtures        
-    year = params[:year] || 2011
-    puts year
-    @results = Match.current_season(year)            
+    @year = params[:year] || 2011
+    @results = Match.current_season(@year)            
     # TODO: Remove this dummy data
     # @results = Match.where('id > 14').limit(5)
-
+    @summary = @results.summary_results
   end
   
 end

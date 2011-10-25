@@ -18,7 +18,7 @@ class Match < ActiveRecord::Base
   end
   
   
-  def self.summary_results
+  def self.summary_results(*year)
     won = Match.where(:result => "Won").count
     drawn = Match.where(:result => "Draw").count
     lost = Match.where(:result => "Lost").count
