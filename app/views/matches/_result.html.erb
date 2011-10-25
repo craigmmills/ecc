@@ -43,7 +43,11 @@
     
     <div class="row slim" id="score_graphic">
       <div class="span8">
-        <%= render :partial => 'progress' %>
+        <div id='chart'>
+          <div style="float:left"></div> 
+          <div style="float:right">Max</div>
+          <%= draw_progress_bar(@progress_bar, local_result.our_runs, local_result.opposition_runs, local_result.result) %>
+        </div>
       </div>
     </div>
   </div> 

@@ -37,4 +37,15 @@ class Match < ActiveRecord::Base
       return "D"
     end
   end
+  
+  def self.progress_bar(matches)
+    all_scores = []            
+    
+    matches.each do |match|
+      all_scores << match.our_runs.to_i
+      all_scores << match.opposition_runs.to_i
+    end
+    
+    all_scores.max
+  end
 end

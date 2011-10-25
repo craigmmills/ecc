@@ -92,7 +92,7 @@ class MatchesController < ApplicationController
     # TODO: Remove this dummy data
     # @results = Match.where('id > 14').limit(5)
     @summary = @results.summary_results          
-    
+    @progress_bar = Match.progress_bar(@results)
   end
   
 end
