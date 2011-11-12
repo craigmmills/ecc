@@ -40,26 +40,13 @@
 					<%= f.submit :value => "presave", :class => 'btn primary', :data_controls_modal => "modal-from-dom", :data_backdrop => "true", :data_keyboard => "true" %>
 				
 			
-			<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" data-method="store" class="btn danger">Modal Save</button>
+			
 		
 		</div>
 	</div>
 	
 	
-   <!-- modal content -->
-    <div id="modal-from-dom" class="modal hide">
-      <div class="modal-header">
-        <a href="#" class="close">&times;</a>
-        <h3><% params[:description] %></h3>
-      </div>
-      <div class="modal-body">
-        <p>Please input email address</p>
-  			<input class="xlarge" id="xlInput" name="xlInput" size="30" type="text">
-      </div>
-      <div class="modal-footer">
-  			<%= f.submit :value => "Save Changes", :class => 'btn primary', :remote => true %>
-      </div>
-    </div> 
+  
 
   
 	
