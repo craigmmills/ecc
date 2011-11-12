@@ -1,12 +1,29 @@
-<div class="hero-unit">
-  <h1>Elsworth Cricket Club</h1>
-  <h2>Founded in 1876</h2>
-</div>
+
+
 
 <div class="container">
+	
+  <div class="row reduce">	
+	
+		
+		<div class="span16 columns">
+			<div class="well">
+				<div class="head-img">
+					
+					<div class="home-head span6">
+						<h1>Elsworth Cricket Club</h1>
+						<h4>Established in 1893</h4>
+					</div>
+					
+				</div>
+			</div>
+						
+		</div>
+	</div>	
+
   <div class="row">
-    <div class="span6 columns">
     
+		<div class="span6 columns">
       <div class="well">
         <h2 class="page-header">Hire our ground</h2>    
         <h3>Quality cricket pitch, pavilion and professional tea for £200.</h3>
@@ -24,24 +41,23 @@
 		
     <div class="span10 columns">
 			<div class="well">			
-		
-      <h2 class="page-header">Next Fixtures</h2>
+		  	<h2 class="page-header">Next Fixtures</h2>
 	  		<% @fixtures.each do |fixture| %>
 					 <p><%= link_to fixture.match_date, fixture %> <%= fixture.opposition.name %></p>
 				<% end %>    
-      <br/>
+      	<br/>
 
-
-      <h2 class="page-header">News 
+				<h2 class="page-header">News 
 				<%= link_to image_tag("plus16.png", :border=>0), :action => 'new', :controller => 'news' %>
 				</h2>
-	    <% @news.each do |news| %>
-	  	  <h3> <%= link_to news.title, news %> </h3>
-	  	  <p> <%= news.description %></p>
-			<% end %>
-				</div>
-			
+	    	<% @news.each do |news| %>
+	  	  	<h3> <%= link_to news.title, news %> </h3>
+	  	  	<p> <%= news.description %></p>
+				<% end %>
+			</div>
     </div>
+
   </div>  
+
 </div>
 

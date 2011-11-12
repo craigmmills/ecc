@@ -6,7 +6,49 @@ a {
   color: #528036; }
 
 .hero-unit {
-	margin-top: 10px; }
+	margin-top: 10px;
+	background-color: white;
+}
+.well {
+background-color: white;
+}
+
+.reduce {
+	margin-bottom: 0px;
+	}
+	
+.head-img {
+	background: url(elsworth_nofilter.png);
+	background-repeat:no-repeat;
+	width: 900px;
+	height: 408px;
+	}
+	
+.home-head {
+	position:relative;
+	left:-60px;
+	top: 300px;
+	width: 300px;
+	background-color: black;
+}
+
+.home-head h1{
+	color: white;
+	margin-top: 9px;
+	margin-left: 9px;
+	margin-bottom: 2px;
+}
+
+.home-head h4{
+	color: white;
+	margin-left: 9px;
+	margin-bottom: 9px;
+}
 	
 body {
-  background: url(pool_table.png); }
+  background: url(elsworthbk.png);
+  background-repeat:no-repeat; 
+	background-color: #EEEDED; 
+	padding-bottom: 1000px;
+	}
+	

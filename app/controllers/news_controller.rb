@@ -32,6 +32,8 @@ class NewsController < ApplicationController
     end
   end
   
+  
+  #first store results in a session, then when the email is verified proerly save
   def create
     
     puts "#{params[:commit]} ****************************************"

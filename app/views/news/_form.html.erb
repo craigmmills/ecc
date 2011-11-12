@@ -35,12 +35,13 @@
 		<div class="actions">
 			
 			<!-- <input backdrop="true" class="btn primary" controls_modal="modal-from-dom" keyboard="true" name="commit" type="submit" value="presave"> -->			
-			<%= f.submit :value => "presave", :class => 'btn primary', :data_controls_modal => "modal-from-dom", :data_backdrop => "true", :data_keyboard => "true" %>
+			
+			
+					<%= f.submit :value => "presave", :class => 'btn primary', :data_controls_modal => "modal-from-dom", :data_backdrop => "true", :data_keyboard => "true" %>
+				
+			
 			<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" data-method="store" class="btn danger">Modal Save</button>
-			 
-			
-			
-			
+		
 		</div>
 	</div>
 	
@@ -49,7 +50,7 @@
     <div id="modal-from-dom" class="modal hide">
       <div class="modal-header">
         <a href="#" class="close">&times;</a>
-        <h3>Verify</h3>
+        <h3><% params[:description] %></h3>
       </div>
       <div class="modal-body">
         <p>Please input email address</p>

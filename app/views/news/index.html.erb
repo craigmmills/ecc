@@ -1,15 +1,33 @@
-<div class="hero-unit">
-  <div class="container"><h1>News</h1> </div>
+
+<div class="container">
+	<div class="row reduce">	
+		<div class="span16 columns">
+			<div class="well">	
+			
+				    <img src="assets/elsworth_nofilter.png">
+			
+			</div>			
+		</div>
+	</div>
 </div>
 
-<div class="container well">
-	<% @news.each do |news| %>
 
-	  <h3> <%= link_to news.title, news %> </h3>
-	  <p> <%= news.description %></p>
+<div class="container">
+	<div class="row reduce">	
+		<div class="span16 columns">
+			<div class="well">	
+				<% @news.each do |news| %>
 
-	<% end %>
+				  <h3> <%= link_to news.title, news %> </h3>
+				  <p> <%= news.description %></p>
+
+				<% end %>
+			</div>			
+		</div>
+	</div>
 </div>
+
+
 
 
 
