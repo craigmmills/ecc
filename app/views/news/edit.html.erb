@@ -1,15 +1,56 @@
 <div class="container">
 	<div class="row">
-		<div class="well">
-			
-			
+		<div class="well">		
 			<h2 class="page-header">
 				Edit your news
-			</h2><!-- TODO: Think this "container" div and all other bits should live in template - like application.html.erb -->
+			</h2>
 			
+			<% @news.description %>
 			
-				<%= render 'form' %><%= link_to 'Delete News', @news, confirm: 'Are you sure?', method: :delete %>
+			<%= puts @news %>
 			
+			<%= form_tag "/news/val_edit_news" do %>
+
+				<fieldset>
+					<div class="clearfix">
+						<div class="field">
+							<%= label_tag "Title", nil, :class => "xlarge" %>
+							<div class="input">
+								<%= text_field_tag 'title', @news.title, :maxlength => 15, :size => 20, :class => "xxlarge span12" %>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="field">
+							<%= label_tag "description", nil, :class => "xxlarge" %>
+							<div class="input">
+								 <%= text_area_tag "description", @news.description, :maxlength => 500, :size => 20, :class => "xxlarge span12 description"%>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="field">
+							<%= label_tag "E-mail", nil, :class => "xxlarge" %>
+							<div class="input">
+								<%= text_field_tag "email", nil, :class => "xxlarge span4" %>
+							</div>
+						</div>
+					</div>
+					
+					<%= hidden_field_tag 'id', @news.id %>
+
+
+					<div class="btn_new">	
+						<%= submit_tag "update_val", :class => 'btn primary' %>
+					</div>
+
+				</fieldset>
+
+
+
+
+
+			<% end %>
 		</div>
 	</div>
 </div>

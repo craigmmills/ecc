@@ -12,6 +12,7 @@ Ecc::Application.routes.draw do
   end
   
   match "/news/val_new_news" => "news#val_new_news"
+  match "/news/val_edit_news" => "news#val_edit_news"
   
   resources :players
                      

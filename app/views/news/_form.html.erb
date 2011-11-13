@@ -1,19 +1,42 @@
+<%= form_tag "/news/val_new_news" do %>
 
+	<fieldset>
+		<div class="clearfix">
+			<div class="field">
+				<%= label_tag "Title", nil, :class => "xlarge" %>
+				<div class="input">
+					<%= text_field_tag "title", nil, :class => "xxlarge span12" %>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix">
+			<div class="field">
+				<%= label_tag "description", nil, :class => "xxlarge" %>
+				<div class="input">
+					 <%= text_area_tag "description", nil, :class => "xxlarge span12 description"%>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix">
+			<div class="field">
+				<%= label_tag "E-mail", nil, :class => "xxlarge" %>
+				<div class="input">
+					<%= text_field_tag "email", nil, :class => "xxlarge span4" %>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="btn_new">	
+			<%= submit_tag "Update", :class => 'btn primary' %>
+		</div>
+	
+	</fieldset>
 
+	
+	
 
-<% form_tag '/news/new2' do %>
-
-    <%=label_tag 'title' %>
-    <%=text_field_tag 'title'%>
-
-    <%=label_tag 'description' %>
-    <%=text_area_tag 'description'%>
-
-		<%=label_tag 'email' %>
-    <%=text_field_tag 'email'%>
-
-    <div><%= submit_tag 'Save' %></div>
-
-<% end -%>
+	
+<% end %>
 	
 

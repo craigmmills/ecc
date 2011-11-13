@@ -1,57 +1,20 @@
 <div class="container">
+	
+
 	<div class="row">
-		<div class="well">
-			
-			
-			<h2 class="page-header">
-				Add some news
-			</h2>
-			
-			
-				<%= form_tag "/news/val_new_news" do %>
-				
-				<fieldset>
-					<div class="clearfix">
-						<div class="field">
-							<%= label_tag "Title", nil, :class => "xlarge" %>
-							<div class="input">
-								<%= text_field_tag "title", nil, :class => "xxlarge span12" %>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix">
-						<div class="field">
-							<%= label_tag "description", nil, :class => "xxlarge" %>
-							<div class="input">
-								 <%= text_area_tag "description", nil, :class => "xxlarge span12 description"%>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix">
-						<div class="field">
-							<%= label_tag "E-mail", nil, :class => "xxlarge" %>
-							<div class="input">
-								<%= text_field_tag "email", nil, :class => "xxlarge span4" %>
-							</div>
-						</div>
-					</div>
-					
-					
-				</fieldset>
-				
-				<div class="row">
-						<div class="actions">	
-							<%= submit_tag "Save", :class => 'btn primary' %>
-						</div>
-				</div>
-				  
-				  
-				 
-					
-				  
-				<% end %>
-			
 		
+		<div class="well">
+			<div class="row">
+				<div id="news_head" class="home-head span6">
+					<h1>News</h1>
+					<h4>Add the latest offerings from ECC</h4>
+				</div>
+			</div>
+			
+			<div class="row">
+				<%= render 'form' %>
+				</div>
+				
 		</div>
 	</div>
 </div>
