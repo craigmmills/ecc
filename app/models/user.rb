@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :news
-  accepts_nested_attributes_for :news
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
