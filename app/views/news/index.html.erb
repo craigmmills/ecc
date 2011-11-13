@@ -21,7 +21,7 @@
 	<div class="row reduce">	
 		<div class="span16 columns">
 			<div class="well">	
-				<% @news.each do |news| %>
+				<% @latest_news.each do |news| %>
 
 				  <h3> <%= link_to news.title, news %> </h3>
 				  <p> <%= news.description %></p>

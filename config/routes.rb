@@ -7,7 +7,11 @@ Ecc::Application.routes.draw do
   resources :venues
   resources :news do 
     get 'store'
+
+    
   end
+  
+  match "/news/val_new_news" => "news#val_new_news"
   
   resources :players
                      
@@ -21,7 +25,7 @@ Ecc::Application.routes.draw do
   root :to => "home#index" 
   devise_for :users
   
-  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,8 +1,29 @@
 class NewsController < ApplicationController
+  
+  def val_new_news
+   
+   #check the email, if fine save news
+   logger.debug "here are the params: #{params}"
+   
+   
+   if Player.find(:first, :conditions => [ "email = ?", params[:email]])
+     latest_news = News.new({ :title => params[:title], :description => params[:description]}, :without_protection => true)
+     latest_news.save
+    else
+      logger.debug "nothing"
+   end
+   
+   
+   respond_to do |format|
+       format.html { redirect_to '/news/' }
+   end  
+  end
+  
   # GET /news
   # GET /news.json
   def index
     @news = News.all
+    @latest_news = News.latest_news
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +46,8 @@ class NewsController < ApplicationController
   # GET /news/new.json
   def new
     @news = News.new
-
+    
+    puts "inside the controller#new"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @news }
