@@ -1,14 +1,10 @@
 <div class="container">
 	<div class="row">
 		<div class="well">		
-			<h2 class="page-header">
+			<h1 class="page-header">
 				Edit your news
-			</h2>
-			
-			<% @news.description %>
-			
-			<%= puts @news %>
-			
+			</h1>
+						
 			<%= form_tag "/news/val_edit_news" do %>
 
 				<fieldset>
@@ -41,7 +37,7 @@
 
 
 					<div class="btn_new">	
-						<%= submit_tag "update_val", :class => 'btn primary' %>
+						<%= submit_tag "Update News", :class => 'btn primary' %>
 					</div>
 
 				</fieldset>
