@@ -1,3 +1,0 @@
-class HomeTeamsController < ApplicationController
- 
-end

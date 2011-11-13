@@ -11,6 +11,8 @@
 			</li><% end %>
 		</ul>
 	</div><% end %>
+	
+	
 	<div class="row">
 		<fieldset>
 			<div class="clearfix">
@@ -29,19 +31,28 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			<% f.fields_for :users do |builder| %>  
+			
+			<div class="clearfix">
+				<div class="field">
+					 <%= builder.label :email, "Email" %>
+					<div class="input">
+						 <%= builder.text_field :email %>
+					</div>
+				</div>
+			</div>
+			
+			<% end %>
+			
+			
 		</fieldset>
 	</div>
+	
 	<div class="row">
-		<div class="actions">
-			
-			<!-- <input backdrop="true" class="btn primary" controls_modal="modal-from-dom" keyboard="true" name="commit" type="submit" value="presave"> -->			
-			
-			
-					<%= f.submit :value => "presave", :class => 'btn primary', :data_controls_modal => "modal-from-dom", :data_backdrop => "true", :data_keyboard => "true" %>
-				
-			
-			
-		
+		<div class="actions">	
+			<%= f.submit :class => 'btn primary'%>		
 		</div>
 	</div>
 	
