@@ -16,7 +16,7 @@
 						<div class="field">
 							<%= label_tag "Title", nil, :class => "xlarge" %>
 							<div class="input">
-								<%= text_field_tag 'title', @news.title, :maxlength => 15, :size => 20, :class => "xxlarge span12" %>
+								<%= text_field_tag 'title', @news.title, :maxlength => 200, :size => 20, :class => "xxlarge span12" %>
 							</div>
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 						<div class="field">
 							<%= label_tag "description", nil, :class => "xxlarge" %>
 							<div class="input">
-								 <%= text_area_tag "description", @news.description, :maxlength => 500, :size => 20, :class => "xxlarge span12 description"%>
+								 <%= text_area_tag "description", @news.description, :maxlength => 2000, :size => 20, :class => "xxlarge span12 description"%>
 							</div>
 						</div>
 					</div>

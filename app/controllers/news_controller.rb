@@ -23,8 +23,7 @@ class NewsController < ApplicationController
 
     if Player.find(:first, :conditions => [ "email = ?", params[:email]])
  
-      if @news.update_attributes(:title => params[:title], :description => params[:description])
-       
+      if @news.update_attributes(:title => params[:title], :description => params[:description])  
         respond_to do |format|
           format.html { redirect_to @news }
           format.json { head :ok }
