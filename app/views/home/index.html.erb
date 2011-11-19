@@ -24,9 +24,9 @@
         <h2 class="page-header">Hire our ground</h2>    
         <h3>Quality cricket pitch, pavilion and professional tea for £200.</h3>
         <p>add pics and links etc</p>
-      </div>
+      <br/>
     
-      <div class="well">
+      
 	      <h2 class="page-header">Latest Scores</h2>
 	  		<% @latest_results.each do |resul| %>
 					<p><%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %>
