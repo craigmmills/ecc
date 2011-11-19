@@ -1,25 +1,23 @@
 
-<div class="container">
-	<div class="row reduce">	
-		<div class="span16 columns">
-			<div class="well">
-				<div class="head-img">
-					
-					<div class="home-head span6">
-						<h1>News</h1>
-						<h4>Latest from the wicket</h4>
-					</div>
-					
-				</div>
-			</div>					
+<<div class="container">
+	
+  <div class="row reduce">	
+		<div class="span16 columns">	
+				<div class="head-img"></div>
+		</div>
+	</div>	
+	
+	<div class="row">
+		<div class="span16 columns title-strip">	
+			<h1>Latest News</h1>
+			<h4>Straight from the wicket</h4>
 		</div>
 	</div>
-</div>
+
+<div class="row">
+  <div class="span16 bk">
 
 
-<div class="container">
-	<div class="row reduce">	
-		<div class="span16 columns">
 			<div class="well">	
 				<% @latest_news.each do |news| %>
 
@@ -27,9 +25,9 @@
 				  <p> <%= news.description %></p>
 
 				<% end %>
-			</div>			
-		</div>
-	</div>
+</div>
+</div>
+</div>
 </div>
 
 

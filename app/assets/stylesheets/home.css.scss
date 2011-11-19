@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+h1, h2, h3, h4, body {
+	
+	font-family: 'Poly', serif;
+	font-weight: normal;
+}
+
 a {
   color: #528036; }
 
@@ -9,8 +16,31 @@ a {
 	margin-top: 10px;
 	background-color: white;
 }
+
+.row {
+	
+	margin-bottom: 0px;
+}
+
+.bk {
+	background-color: white;
+	margin-left: 0px;
+	padding-left: 0px;
+	
+}
+
 .well {
 background-color: white;
+margin-bottom: 20px;
+padding: 19px;
+border: 0px solid #FFF;
+min-height: 20px;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .reduce {
@@ -18,17 +48,13 @@ background-color: white;
 	}
 	
 .head-img {
-	background: url(elsworth_nofilter.png);
+	background: url(mainpic.png);
 	background-repeat:no-repeat;
-	width: 900px;
-	height: 408px;
+	width: 940px;
+	height: 500spx;
 	}
 	
-.home-head {
-	position:relative;
-	left:-60px;
-	top: 300px;
-	width: 300px;
+.title-strip {
 	background-color: #222;
 	background-repeat: repeat-x;
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #222222));
@@ -42,23 +68,28 @@ background-color: white;
 
 
 
-.home-head h1{
+.title-strip h1{
 	color: white;
 	margin-top: 9px;
 	margin-left: 9px;
 	margin-bottom: 2px;
 }
 
-.home-head h4{
+.title-strip h4{
 	color: white;
 	margin-left: 9px;
 	margin-bottom: 9px;
 }
 	
 body {
-  background: url(elsworthbk.png);
-  background-repeat:no-repeat; 
-	background-color: #EEEDED; 
+  background: url(graphy.png);
+/*  background-repeat:no-repeat; */
+	background-color: #FFF; 
 	padding-bottom: 1000px;
+}
+
+.top {
+	
+	padding-top: 60px;
 }
 	
