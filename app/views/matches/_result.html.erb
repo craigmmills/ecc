@@ -1,14 +1,17 @@
   <div class="row well">
-    <div class="row slim" id="main_results">
-      <div id="main_detail" class="span7">
+  <!-- <div class="row"> -->
+    <!-- <div class="row slim" id="main_results"> -->
+    <div class="slim" id="main_results">
+      <!-- <div id="main_detail" class="span8"> -->
         <%= link_to "Edit", edit_match_path(result) %>
         <h2>
           <small>vs</small>
           <%= Opposition.find(result.opposition_id).name %>
           </h2>
-      </div>
-      <div id="sidebar" class="span4">
-        <div class="row">
+      <!-- </div> -->
+      <!-- <div id="sidebar" class="span4"> -->
+      <div id="sidebar">
+        <!-- <div class="row"> -->
           <div class="span4" style="text-align:right; float:right">
           <%= span_result(result.result, 'Won') %>
           <%= span_result(result.result, 'Drawn') %>
@@ -17,11 +20,12 @@
           <div class="span4" style="text-align:right; float:right">
             <small><%= result.match_date.strftime("#{result.match_date.day.ordinalize} %b '%y") %></small>
           </div>
-        </div> 
+        <!-- </div>  -->
       </div>
     </div>
   
-    <div id="score_detail" class="row slim">
+    <!-- <div id="score_detail" class="row slim"> -->
+    <div id="score_detail" class="slim">
       <div class="span4 offset2">
         <h1 style="margin-bottom:0px"><%= result.our_runs || '-' %>
           <small>for</small>
@@ -36,7 +40,8 @@
       </div>    
     </div>
     
-    <div id="score_graphic" class="row slim">
+    <!-- <div id="score_graphic" class="row slim"> -->
+    <div id="score_graphic" class="slim">
       <div style="position: relative, height: 20px; width: 100%">
         <%= draw_progress_bar(@progress_bar, result.our_runs, result.opposition_runs, result.result) %>
       </div> 

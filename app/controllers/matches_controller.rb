@@ -95,4 +95,5 @@ class MatchesController < ApplicationController
     @progress_bar = Match.progress_bar(@results)
   end
   
+  
 end

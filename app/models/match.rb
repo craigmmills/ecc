@@ -48,4 +48,13 @@ class Match < ActiveRecord::Base
     
     all_scores.max
   end
+  
+  # Returns true if our_runs, opposition_runs, our_wickets and opposition_wickets are all present.
+  def all_present?
+    if !our_runs.blank? && !opposition_runs.blank? && !our_wickets.blank? && !opposition_wickets.blank?
+      then true
+    else false
+    end
+    
+  end
 end
