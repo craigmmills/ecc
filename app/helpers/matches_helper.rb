@@ -49,8 +49,8 @@ module MatchesHelper
       else
         '#BFBFBF'
       end
-    our_out = "<div style='float:left;width: #{our_perc}%; height:20px; background-color: #{colour}; text-align:center'>Our</div>"
-    opp_out = "<div style='float:left;width: #{opp_perc}%; height:20px; background-color: #{colour}; text-align:center'>Opp</div>"
+    our_out = "<div style='position:absolute; top:0; left: 0; width: #{our_perc}%; height:20px; background-color: #{colour}; text-align:center'>Our</div>"
+    opp_out = "<div style='position:absolute; top:0; left: 0; z-index: 10; width: #{opp_perc}%; height:20px; background-color: #{colour}; text-align:center'>Opp</div>"
     output = our_out + opp_out
     return output.html_safe
     
