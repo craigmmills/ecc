@@ -1,0 +1,24 @@
+.row.result_box
+  = form_for :result do |f|
+    .edit_link
+      = f.submit "Submit", :disable_with => 'Submiting...'
+      = link_to "Edit", edit_match_path(result) unless result.all_present? 
+    .span7
+      .row
+        %h2
+          %small vs
+          = Opposition.find(result.opposition_id).name
+        .span3
+          %h1{:style => "margin-bottom:0px"}
+            = f.text_field :our_runs
+            %small for
+            = result.our_wickets || '-'
+        .span4
+          %h1{:style => "margin-bottom:0px"}
+            = result.opposition_runs || '-'
+            %small for
+            = result.opposition_wickets || '-'
+    .span3{:style => 'text-align = right; float:right'} 
+      = span_result(result.result, 'Won')
+      = span_result(result.result, 'Drawn')
+      = span_result(result.result, 'Lost')
