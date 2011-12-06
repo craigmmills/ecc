@@ -68,7 +68,7 @@
             <tr>
 	
 
-              <td><%= link_to "	#{match.match_date.strftime("#{match.match_date.day.ordinalize} %b '%y")}", edit_match_path(match) %> </td>
+              <td><%= link_to "	#{match.match_date.strftime("#{match.match_date.day.ordinalize} %b '%y")}", match.url %> </td>
               <td><%= match.our_team.name %></td>
               <td><%= match.opposition.name %></td>
               <td><%= match.our_runs %></td>
