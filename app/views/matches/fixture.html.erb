@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="span6 columns">
-    
+    <h2 class="page-header">Key Statistics</h2>
       <div class="well">
         <h2 class="page-header">Previous Results</h2>    
         <% @match.opposition.matches.our_results.each do |prev_match|%>
@@ -21,14 +21,44 @@
 					<% end %>
 	  		
       </div>
+
+			<div class="well">
+	      <h2 class="page-header">Distance to Poacher</h2>
+					
+	  		
+      </div>
     </div>
   
     <div class="span10 columns">
-      <h2 class="page-header">How to get there</h2>
-	  		   
+      <h2 class="page-header">Where is the Venue?</h2>
+	  		  
+	
+			<div id="map" style="width: 600px; height: 400px"></div>
+
+				<script src="leaflet.js"></script>
+				<script>
+					var map = new L.Map('map');
+
+					var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+						cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+						cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+					map.setView(new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>), 13).addLayer(cloudmade);
+
+
+					var markerLocation = new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>),
+						marker = new L.Marker(markerLocation);
+
+					map.addLayer(marker);
+					
+				</script>
+	
+	
+	
+	 
       <br/>
 
-      <h2 class="page-header">Opposition Stats</h2>
+      
 	    
     </div>
   </div>  

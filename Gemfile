@@ -9,6 +9,9 @@ gem 'pg'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'heroku'
 
+gem "paperclip", "~> 2.0"
+gem "leaflet-ruby"
+
 # For the scraper
 gem 'nokogiri'
 

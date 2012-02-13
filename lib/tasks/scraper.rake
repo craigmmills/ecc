@@ -71,6 +71,8 @@ namespace :ecc do
             
             #gets url of the detailed scorecard
             scorecard_url = "#{base_url}#{data[6].children.first['href']}"   
+            match["url"] = scorecard_url
+            
             score_doc = Nokogiri::HTML(open(scorecard_url))
             
             #figure out who batted first so we can get the scores in the right order     
@@ -123,14 +125,14 @@ namespace :ecc do
       
       #fill all the refs before adding the matches
       fill_all_models matches
-      create_our_teams
+      
       
       #fill matches table
       Match.destroy_all
       puts matches.to_yaml
       puts matches.length
      
-      debugger  
+      
         matches.each do |match|
           m = Match.new(
                     :our_team_id => OurTeam.find(:first, :conditions => ["name = ?", match["our_team"]]).id,
@@ -141,7 +143,8 @@ namespace :ecc do
                     :our_wickets => match["our_team_wickets"],
                     :venue_id => Venue.find(:first, :conditions => ["name = ?", match["venue"]]).id,
                     :match_date => match["match_date"],
-                    :result => match["result"]
+                    :result => match["result"],
+                    :url => match["url"]
                     )
           m.save 
          
@@ -154,8 +157,13 @@ end #namespace
 def fill_all_models data
   puts "fill"
   
+  OurTeam.destroy_all
   Venue.destroy_all
   Opposition.destroy_all
+  
+  
+  create_our_teams
+  
   data.each do |match|
     unless Venue.find(:first, :conditions => [ "name = ?", match["venue"]])
       v = Venue.new(:name => match["venue"]) 

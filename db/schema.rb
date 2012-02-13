@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008132313) do
+ActiveRecord::Schema.define(:version => 20120207214548) do
 
   create_table "matches", :force => true do |t|
     t.integer  "our_team_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20111008132313) do
     t.integer  "our_wickets"
     t.integer  "opposition_wickets"
     t.string   "result"
+    t.string   "url"
   end
 
   create_table "news", :force => true do |t|
@@ -56,6 +57,11 @@ ActiveRecord::Schema.define(:version => 20111008132313) do
     t.string   "home_num"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "url"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
