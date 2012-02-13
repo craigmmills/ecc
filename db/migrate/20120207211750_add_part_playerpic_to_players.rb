@@ -1,5 +1,5 @@
 class AddPartPlayerpicToPlayers < ActiveRecord::Migration
-  def self.up
+    def self.up
       change_table :players do |t|
         t.has_attached_file :avatar
       end

@@ -1,79 +1,103 @@
-<!-- <div id='coin-slider'>
-	<a href="assets/mainpic.jpg" target="_blank">
-		<img src='assets/mainpic.jpg' >
-		<span>
-			Description for img01
-		</span>
-	</a>
-	<a href="assets/elsworth_nofilter.jpg">
-		<img src='assets/elsworth_nofilter.jpg' >
-		<span>
-			Description for imgN
-		</span>
-	</a>
-</div> -->
-
-
-
-
-
-
-
-
 
 <div class="container">
-	<div class="row reduce">
-		<div class="span16 columns">
-			<div class="head-img"></div>
-		</div>
-	</div>
+	
+	
 	<div class="row">
-		<div class="span16 columns title-strip">
-			<h1>
-				Elsworth Cricket Club
-			</h1>
-			<h4>
-				Established in 1893
-			</h4>
-		</div>
+		<div class="span16">
+			
+		
+		<div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="item active">
+              <%= image_tag('mainpic.png')%>
+              <div class="carousel-caption">
+                <h4>Elsworth Cricket Club	</h4>
+                <p>Established in the 1800s</p>
+              </div>
+            </div>
+						
+					</h2><% @latest_news.each do |news| %>
+					
+						<div class="item">
+							<%= image_tag(news.pics.url(:main)) %>
+							<div class="carousel-caption">
+                <h4> <%= news.title %></h4>
+                <p> <%= truncate(news.description, :length => 150)%></p>
+              </div>
+						</div>
+				<% end %>
+
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+        </div>
+</div>
 	</div>
+	
 	<div class="row">
 		<div class="span16 bk">
-			<div class="span6 columns">
-				<div class="well">
-					<h2 class="page-header">
-						Hire our ground
-					</h2>
-					<h3>
-						Quality cricket pitch, pavilion and professional tea for £200.
-					</h3>
-					<p>
-						add pics and links etc
-					</p><br>
-					<h2 class="page-header">
-						Latest Scores
-					</h2><% @latest_results.each do |resul| %>
-					<p>
-						<%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %> <span class='label &lt;%= label_result(resul.result) %&gt;'><%= resul.result %></span>
-					</p><% end %>
-				</div>
-			</div>
+			
 			<div class="span9 columns">
 				<div class="well">
 					<h2 class="page-header">
 						Next Fixtures
-					</h2><% @fixtures.each do |fixture| %>
+					</h2>
+					
+					<% @fixtures.each do |fixture| %>
 					<p>
-						<%= link_to fixture.match_date, fixture %> <%= fixture.opposition.name %>
-					</p><% end %><br>
+						
+						
+						<% if fixture.our_team.name == "1st XI" %>
+						
+						 <span class="label" style="background-color: #075220; margin-right: 6px; float: left; width: 35px; height: 16px;"> <%= fixture.our_team.name %> </span>
+						<% else %>
+							<span class="label" style="background-color: #520907; margin-right: 6px; float: left; width: 35px; height: 16px;"> <%= fixture.our_team.name %> </span>
+						<% end %>
+						
+						
+						
+						 
+						<%= link_to fixture.match_date.to_formatted_s(:long), fixture %> <%= fixture.opposition.name %> 
+						<% if fixture.venue.name == "Elsworth" %>
+						  <span class="label">Home</span>
+						<% else %>
+							<span class="label">Away</span>
+						<% end %>
+					</p>
+					<% end %>
+					<br>
 					<h2 class="page-header">
 						News <%= link_to image_tag("plus16.png", :border=>0), :action => 'new', :controller => 'news' %>
-					</h2><% @latest_news.each do |news| %>
+					</h2>
+					
+					
+					<% @latest_news.each do |news| %>
 					<h3>
 						<%= link_to news.title, news %>
 					</h3>
 					<p>
 						<%= news.description %>
+					</p>
+					
+					<% end %>
+				</div>
+			</div>
+			<div class="span6 columns">
+				<div class="well">
+					
+					<h2 class="page-header">Our Sponsor The Poacher</h2>
+					<div class="thumbnail">
+					<%= image_tag("poacher.png")%>
+					<div class="caption">
+            <h5>Our ground is only 100m from a decent pint and cheesy chips </h5>
+          </div>
+					</div>
+					<br>
+					<h2 class="page-header">
+						Latest Scores
+					</h2><% @latest_results.each do |resul| %>
+					<p>
+						<%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %> <span class='label &lt;%= label_result(resul.result) %&gt;'><%= resul.result %></span>
 					</p><% end %>
 				</div>
 			</div>
@@ -83,6 +107,8 @@
 
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function() {
-		$('#coin-slider').coinslider();
+	  $('.myCarousel').carousel({
+		  interval: 2000
+		})
 	});
 </script>

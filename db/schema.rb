@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207214548) do
+ActiveRecord::Schema.define(:version => 20120213133240) do
 
   create_table "matches", :force => true do |t|
     t.integer  "our_team_id"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(:version => 20120207214548) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pics_file_name"
+    t.string   "pics_content_type"
+    t.integer  "pics_file_size"
+    t.datetime "pics_updated_at"
   end
 
   create_table "oppositions", :force => true do |t|
@@ -46,6 +50,11 @@ ActiveRecord::Schema.define(:version => 20120207214548) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "our_teams_players", :force => true do |t|
+    t.integer "player_id"
+    t.integer "our_team_id"
   end
 
   create_table "players", :force => true do |t|

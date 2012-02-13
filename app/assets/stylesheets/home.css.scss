@@ -47,12 +47,6 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	margin-bottom: 0px;
 	}
 	
-.head-img {
-	background: url(mainpic.png);
-	background-repeat:no-repeat;
-	width: 940px;
-	height: 500spx;
-	}
 	
 .title-strip {
 	background-color: #222;
@@ -91,5 +85,10 @@ body {
 .top {
 	
 	padding-top: 60px;
+}
+
+.first {
+	background-color: #468847;
+	
 }
 	

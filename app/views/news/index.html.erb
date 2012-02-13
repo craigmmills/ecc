@@ -9,7 +9,7 @@
 	
 	<div class="row">
 		<div class="span16 columns title-strip">	
-			<h1>Latest News</h1>
+			<h1>News Archive</h1>
 			<h4>Straight from the wicket</h4>
 		</div>
 	</div>
@@ -19,7 +19,7 @@
 
 
 			<div class="well">	
-				<% @latest_news.each do |news| %>
+				<% @news.each do |news| %>
 
 				  <h3> <%= link_to news.title, news %> </h3>
 				  <p> <%= news.description %></p>

@@ -60,7 +60,7 @@ RailsAdmin.config do |config|
   
   #  ==> Included models
   # Add all excluded models here:
-   config.excluded_models << [OurTeam]
+  # config.excluded_models << [OurTeam]
   
   # Add models here if you want to go 'whitelist mode':
   # config.included_models << [Player]

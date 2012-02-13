@@ -1,55 +1,48 @@
-<div class="hero-unit">
-	<h1><%= @match.match_date.to_formatted_s(:short) %> , <%=@match.our_team.name%> vs <%= @match.opposition.name%></h1>
-</div>
+
+	
+
 
 <div class="container">
-  <div class="row">
-    <div class="span6 columns">
-    <h2 class="page-header">Key Statistics</h2>
-      <div class="well">
-        <h2 class="page-header">Previous Results</h2>    
-        <% @match.opposition.matches.our_results.each do |prev_match|%>
-					<p><%= prev_match.result %> (<%= prev_match.match_date.year %>)</p>
-				<% end %>
-
-      </div>
-    
-      <div class="well">
-	      <h2 class="page-header">Winning Scores</h2>
-					<% @match.opposition.winning_scores.each do |score| %>
-						<p><%= score.to_s %></p>
-					<% end %>
-	  		
-      </div>
-
-			<div class="well">
-	      <h2 class="page-header">Distance to Poacher</h2>
-					
-	  		
-      </div>
-    </div>
+	
+	<h1  style="margin-top:80px;"><%= @match.match_date.to_formatted_s(:long) %> </h1>
+	<h1 id="">Elsworth <%=@match.our_team.name%> vs <%= @match.opposition.name%></h1>	 
   
-    <div class="span10 columns">
+
+
+<div class="row">
+    
+  
+    <div class="span16 columns">
       <h2 class="page-header">Where is the Venue?</h2>
 	  		  
-	
-			<div id="map" style="width: 600px; height: 400px"></div>
+			<div class="thumbnail">
+				<div id="map" style="height: 400px"></div>
+				<div class="caption">
+          <h5>The venue is 5km from a decent pint and cheesy chips </h5>
+        </div>
+			</div>
 
-				<script src="leaflet.js"></script>
+
+				<%= javascript_include_tag "leaflet.js" %>
+				<%= stylesheet_link_tag    "leaflet.css" %>
+				
+				
 				<script>
-					var map = new L.Map('map');
+							var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+								cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 20});
 
-					var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
-						cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-						cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
-
-					map.setView(new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>), 13).addLayer(cloudmade);
-
-
-					var markerLocation = new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>),
-						marker = new L.Marker(markerLocation);
-
-					map.addLayer(marker);
+							var map = new L.Map('map');
+							map.setView(new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>), 16).addLayer(cloudmade);
+							var LeafIcon = L.Icon.extend({
+							    iconUrl: "<%= asset_path 'marker.png' %>",
+									    shadowUrl: "<%= asset_path 'marker-shadow.png' %>"
+							    
+							});
+						
+							var greenIcon = new LeafIcon(),
+							    marker = new L.Marker(new L.LatLng(<%= @match.venue.venue_lat %>, <%= @match.venue.venue_lng %>), {icon: greenIcon});
+						
+						map.addLayer(marker);
 					
 				</script>
 	
