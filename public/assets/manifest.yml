@@ -89,10 +89,6 @@ rails_admin/multiselect/ui-icon-circle-triangle-n-dark.png: rails_admin/multisel
 rails_admin/multiselect/ui-icon-circle-triangle-n-light.png: rails_admin/multiselect/ui-icon-circle-triangle-n-light-8492268df5db8c38fb86b26362abfd5e.png
 rails_admin/multiselect/ui-icon-circle-triangle-s-dark.png: rails_admin/multiselect/ui-icon-circle-triangle-s-dark-a99905be0af343cac3e336f6c9d656d2.png
 rails_admin/multiselect/ui-icon-circle-triangle-s-light.png: rails_admin/multiselect/ui-icon-circle-triangle-s-light-be872b67234f9fbba8ad7b1442ee20fa.png
-rails_admin/jquery.colorpicker.js: rails_admin/jquery.colorpicker-3e4bfd61d5898887f4e1f40d114770b0.js
-rails_admin/rails_admin.js: rails_admin/rails_admin-ea088b1670cd280f58cd6c90dec269a1.js
 rails_admin/base/README: rails_admin/base/README
 rails_admin/custom/README: rails_admin/custom/README
-rails_admin/jquery.colorpicker.css: rails_admin/jquery.colorpicker-abec8b04315eef26dca1e44d4070c4a1.css
-rails_admin/rails_admin.css: rails_admin/rails_admin-c50dc8fb7feec436005c96d750f43af2.css
 rails_admin/themes/README: rails_admin/themes/README
