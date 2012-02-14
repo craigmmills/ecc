@@ -8,6 +8,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 gem 'pg'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'heroku'
+gem 'thin'
 
 gem "paperclip", "~> 2.0"
 gem "leaflet-ruby"
