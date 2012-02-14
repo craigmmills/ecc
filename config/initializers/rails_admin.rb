@@ -90,6 +90,13 @@ RailsAdmin.config do |config|
   # Keep in mind that *all* configuration blocks are optional. 
   # RailsAdmin will try his best to provide the best defaults for each section, for each field! 
   # Try to override as few things as possible, in the most generic way. Try to avoid setting labels for models and attributes, use ActiveRecord I18n API instead. 
+  
+  config.model Venue do
+    sort_by :name
+  end
+  
+  
+  
   # Less code is better code!
   # config.model MyModel do
   #   # Here goes your cross-section field configuration for ModelName.

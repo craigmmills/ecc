@@ -4,6 +4,46 @@ class MatchesController < ApplicationController
   def index
     @matches = Match.our_results(:order => 'match_date DESC', :limit  => 30)
     
+    
+    #todo- much nicer way to do this I'm sure
+    month_names = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    #construct the structure of the fixtures for display
+    
+    fixtures = Match.all(:order => "match_date")
+    @fix_table = {}
+    
+    fixtures.each do |fix|
+    
+      month = month_names[fix.match_date.month]
+    
+      @fix_table[month] = [] unless @fix_table.has_key?(month)
+      
+      if fix.venue.name == "Elsworth"
+        venue = "Home"
+      else
+        venue = "Away"
+      end
+      
+      delim = "/"
+      
+      delim = "" if fix.our_runs.nil?
+      
+      #find out the month
+      @fix_table[month] << {
+        "team" => fix.our_team.name,
+        "opposition" => fix.opposition.name,
+        "our_score" => "#{fix.our_runs} #{delim} #{fix.our_wickets}",
+        "opp_score" => "#{fix.opposition_runs} #{delim} #{fix.opposition_wickets}",
+        "match_date" => fix.match_date,
+        "result" => fix.result,
+        "venue" => venue
+      }
+      
+  end
+    
+    
+    
+    
     @results = Match.summary_results
     
     respond_to do |format|

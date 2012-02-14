@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   def index
     
-    @players = Player.all
+    @players = Player.player_list
 
     respond_to do |format|
       format.html # index.html.erb

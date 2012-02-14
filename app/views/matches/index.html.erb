@@ -1,0 +1,50 @@
+<div class="container well" style="padding-top:60px">
+<h1>2012 Fixtures and Results</h1>
+
+
+<% @fix_table.each_key do |mon|%>
+	<h2 style="margin-top: 16px; margin-bottom: 13px;"><%= mon %></h2>
+	<table class="table table-striped">
+		<thead>
+      <tr>
+				<th>Date</th>
+        <th>Team</th>
+				<th>&nbsp</th>
+				<th>&nbsp</th>
+				<th>&nbsp</th>
+        <th>Opposition</th>
+        
+        <th>Location</th>
+				<th>Result</th>
+      </tr>
+    </thead>
+
+		<tbody>
+		
+	<% @fix_table[mon].each do |game| %>
+	
+			<tr>
+				<th><%= game["match_date"].to_s(:long) %></th>
+        <th>Elsworth <%= game["team"]%></th>
+				<th><%= game["our_score"]%></th>
+				<th>vs</th>
+				<th><%= game["opp_score"] %></th>
+        <th><%= game["opposition"] %></th>
+        
+        <th><%= game["venue"]%> </th>
+				<th><span class="label" style="background-color: #075220;"><%= game["result"]%> </span></th>
+      </tr>
+	
+	<% end %>
+		
+			
+		</tbody>
+	</table>
+
+
+
+
+<% end %>
+
+
+

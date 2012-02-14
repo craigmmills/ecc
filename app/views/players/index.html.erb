@@ -8,11 +8,30 @@
 <ul class="thumbnails">
 <% @players.each do |player| %>	
 <li class="span3">
-<div class="thumbnail">
-            <%= image_tag player.avatar.url(:medium) %>
+<div class="thumbnail" style="height: 280px;">
+						<% if player.avatar.nil? %>
+								<%= image_tag player.avatar.url(:medium) %>
+						<% else %>
+								<%= image_tag "no_avatar.png" %>
+								
+						<% end %>
+						
             <div class="caption">
               <h5><%= link_to player.first_name + " " + player.last_name, player.url %></h5>
               <p><%= player.description %></p>
+							<p>
+								
+								
+								
+								
+							<% player.our_teams.each do |team| %>
+							<% if team.name == "1st XI" %>
+							 <span class="label" style="background-color: #075220; margin-right: 5px;"> <%= team.name %> </span>
+							<% else %>
+								<span class="label" style="background-color: #520907; margin-right: 5px;"> <%= team.name %> </span>
+							<% end %>
+							<% end %></p>
+							
               
             </div>
           </div>
