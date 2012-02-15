@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213133240) do
+ActiveRecord::Schema.define(:version => 20120215134144) do
 
   create_table "matches", :force => true do |t|
     t.integer  "our_team_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120213133240) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "url"
+    t.boolean  "hide"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
