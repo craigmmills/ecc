@@ -69,15 +69,14 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "bc108f0bbbe574555f673307ccfd2f46cdfc2fcfa631622d3021be1c59706fe4e921cfa070f0d12a8f6d31f23618f870a057aec32364fa362fcc1c545700197d"
+  # config.pepper = "dbc3fb5158f6c510c58c1072abb609ef7265ba7a07277a69c94b24a3a3ab87ded2d6088848646769dea1e6f1d23b6762cd4da5e4b4334cd876b0affe3bfb56f5"
 
   # ==> Configuration for :confirmable
-  # The time you want to give your user to confirm his account. During this time
-  # he will be able to access your application without confirming. Default is 0.days
-  # When confirm_within is zero, the user won't be able to sign in without confirming.
-  # You can use this to let your user access some features of your application
-  # without confirming the account, but blocking it after a certain period
-  # (ie 2 days).
+  # A period that the user is allowed to access the website even without
+  # confirming his account. For instance, if set to 2.days, the user will be
+  # able to access the website for two days without confirming his account,
+  # access will be blocked just in the third day. Default is 0.days, meaning
+  # the user cannot access the website without confirming his account.
   # config.confirm_within = 2.days
 
   # Defines which key will be used when confirming an account

@@ -1,6 +1,8 @@
 Ecc::Application.routes.draw do
   
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :home_teams
   resources :teams
   resources :matches
@@ -24,7 +26,7 @@ Ecc::Application.routes.draw do
   match "/players/:id" => "players#show"
   #match "/news/"
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
   root :to => "home#index" 
   devise_for :users
   

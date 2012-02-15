@@ -6,7 +6,10 @@ source 'http://rubygems.org'
 gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 
 gem 'pg'
+
+gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
 gem 'heroku'
 gem 'thin'
 gem 'paperclipdropbox'
