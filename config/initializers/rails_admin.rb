@@ -20,7 +20,18 @@ RailsAdmin.config do |config|
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
-
+  config.model Venue do
+      edit do
+        field :opposition
+        field :matches
+        field :name
+        field :venue_lat, :map do
+          longitude_field :venue_lng
+          default_latitude 52  
+          default_longitude 0
+        end
+      end
+    end
   #  ==> Global show view settings
   # Display empty fields in show views
   # config.compact_show_view = false

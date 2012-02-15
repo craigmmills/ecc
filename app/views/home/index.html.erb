@@ -3,7 +3,7 @@
 	
 	
 	<div class="row">
-		<div class="span16">
+		<div class="span12">
 			
 		
 		<div id="myCarousel" class="carousel slide">
@@ -84,20 +84,25 @@
 			<div class="span4 columns">
 			<div class="well">
 					
-					<h2 class="page-header">Our Sponsor The Poacher</h2>
+					<h2 class="page-header">Our Sponsor</h2>
 					<div class="thumbnail">
 					<%= image_tag("poacher.png")%>
 					<div class="caption">
-            <h5>Our ground is only 100m from a decent pint and cheesy chips </h5>
+            <h5>Only 100m from the cricket ground, The Poacher kindly sponsors Elsworth CC </h5>
           </div>
 					</div>
 					<br>
 					<h2 class="page-header">
 						Latest Scores
-					</h2><% @latest_results.each do |resul| %>
-					<p>
-						<%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %> <span class='label &lt;%= label_result(resul.result) %&gt;'><%= resul.result %></span>
-					</p><% end %>
+					</h2>
+					
+					<% if @latest_results.empty? %>
+					 <p> Results will appear once the season begins </p>
+					<% end %>
+					
+					<% @latest_results.each do |resul| %>
+					<p><%= link_to "#{resul.our_team.name} vs #{resul.opposition.name}", resul %> <span class='label &lt;%= label_result(resul.result) %&gt;'> <%= resul.result %> </span></p>
+					<% end %>
 				</div>
 			</div>
 		

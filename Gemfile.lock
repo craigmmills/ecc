@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/jasonl/rails_admin_map_field.git
+  revision: 74d5684f627ecc0b7e25105c57f339fb06dadef3
+  specs:
+    rails_admin_map_field (0.0.1)
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/rails/rails.git
   revision: 551f31340592b562a206591f45c76678830fc934
   branch: 3-1-stable
@@ -273,6 +280,7 @@ DEPENDENCIES
   pg
   rails!
   rails_admin!
+  rails_admin_map_field!
   ruby-debug19
   sass-rails (~> 3.1.0)
   thin
