@@ -40,12 +40,6 @@ write2_36.png: write2_36-7f1fceba9b0f8f10c97794bc775e2c94.png
 zoom-in.png: zoom-in-65c86682c64671c78513c6f9a67acb99.png
 zoom-out.png: zoom-out-11d444a5d07efdebe54e0ccf497470f6.png
 application.js: application-1ce01342d00d3a745fa2f0d5d356c844.js
-images/layers.png: images/layers-a801342e72a8b0b1fa85a2b17839c6f6.png
-images/marker-shadow.png: images/marker-shadow-fee20952f175126da52a677736445283.png
-images/marker.png: images/marker-2b7c0c51b9e89e9381f4ce1e3c8c9c6b.png
-images/popup-close.png: images/popup-close-d5fc182bd4ce0dad9ca57f8edfa8fe76.png
-images/zoom-in.png: images/zoom-in-65c86682c64671c78513c6f9a67acb99.png
-images/zoom-out.png: images/zoom-out-11d444a5d07efdebe54e0ccf497470f6.png
 application.css: application-87ce019a91a717737daaeb42ac634144.css
 rails_admin/aristo/images/bg_fallback.png: rails_admin/aristo/images/bg_fallback-da55e947e1aac1e4664adf81539b33f4.png
 rails_admin/aristo/images/icon_sprite.png: rails_admin/aristo/images/icon_sprite-c85b36fba1b0dd6067f900f7c8da5aec.png
