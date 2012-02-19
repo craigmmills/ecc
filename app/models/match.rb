@@ -4,13 +4,10 @@ class Match < ActiveRecord::Base
   belongs_to :our_team
   
   
-  scope :fixtures, where("matches.result IS NULL")
+  scope :fixtures, where("matches.match_date > '#{Time.now}'").order("matches.match_date")
   scope :short_fixtures, limit(9).fixtures
-  scope :our_results, where("matches.result IS NOT NULL")
+  scope :our_results, where("matches.match_date < '#{Time.now}'")
   scope :latest_results, limit(10).our_results.order("matches.match_date DESC")
-  
-  
-  
   
   
   #check if match has no results (then it's a fixture)

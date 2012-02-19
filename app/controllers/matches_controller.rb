@@ -18,11 +18,17 @@ class MatchesController < ApplicationController
     
       @fix_table[month] = [] unless @fix_table.has_key?(month)
       
+      if fix.venue.name.nil?
+        venue = "Unknown"
+      else
+        
       if fix.venue.name == "Elsworth"
         venue = "Home"
       else
         venue = "Away"
       end
+    end
+    
       
       delim = "/"
       
